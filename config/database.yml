@@ -15,10 +15,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: iematchup_development
+  database: railsdb 
   pool: 5
-  username: iematchup
-  password:
+  username: railsdev 
+  password: railsdev
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: iematchup_test
+  database: railsdb_test
   pool: 5
-  username: iematchup
-  password:
+  username: railsdev
+  password: railsdev
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: iematchup_production
+  database: railsdb
   pool: 5
-  username: iematchup
-  password:
+  username: railsdev
+  password: railsdev
