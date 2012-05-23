@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb65e840-0c63-45e7-8c82-b8ee76adb13c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/matchup/index.html.erb" afterPath="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
     </list>
@@ -35,19 +34,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="matchup_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="matchup_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="34" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
+            <state line="17" column="49" selection-start="447" selection-end="447" vertical-scroll-proportion="0.31326783">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="44" selection-start="245" selection-end="245" vertical-scroll-proportion="0.094936706">
+            <state line="6" column="39" selection-start="291" selection-end="291" vertical-scroll-proportion="-3.75">
               <folding />
             </state>
           </provider>
@@ -97,8 +96,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
       </list>
     </option>
   </component>
@@ -419,6 +418,26 @@
         <option name="RakeTask" enabled="false" />
       </method>
     </configuration>
+    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method>
+        <option name="RakeTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
       <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
       <module name="" />
@@ -548,11 +567,11 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Query Language Console.Default" />
-      <item index="1" class="java.lang.String" itemvalue="Rake.test" />
-      <item index="2" class="java.lang.String" itemvalue="Rake.spec" />
-      <item index="3" class="java.lang.String" itemvalue="Rails.Production: iematchup" />
-      <item index="4" class="java.lang.String" itemvalue="Rails.Development: iematchup" />
+      <item index="0" class="java.lang.String" itemvalue="Rake.test" />
+      <item index="1" class="java.lang.String" itemvalue="Rake.spec" />
+      <item index="2" class="java.lang.String" itemvalue="Rails.Production: iematchup" />
+      <item index="3" class="java.lang.String" itemvalue="Rails.Development: iematchup" />
+      <item index="4" class="java.lang.String" itemvalue="Query Language Console.Default" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -680,16 +699,16 @@
         <state line="54" column="105" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="34" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
+        <state line="6" column="39" selection-start="291" selection-end="291" vertical-scroll-proportion="-3.75">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="44" selection-start="245" selection-end="245" vertical-scroll-proportion="0.094936706">
+        <state line="17" column="49" selection-start="447" selection-end="447" vertical-scroll-proportion="0.31326783">
           <folding />
         </state>
       </provider>
