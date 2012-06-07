@@ -63,7 +63,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="23" selection-start="292" selection-end="292" vertical-scroll-proportion="0.15189873">
+            <state line="10" column="98" selection-start="409" selection-end="409" vertical-scroll-proportion="0.18987341">
               <folding />
             </state>
           </provider>
@@ -750,7 +750,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="23" selection-start="292" selection-end="292" vertical-scroll-proportion="0.15189873">
+        <state line="10" column="98" selection-start="409" selection-end="409" vertical-scroll-proportion="0.18987341">
           <folding />
         </state>
       </provider>

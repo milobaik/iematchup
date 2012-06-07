@@ -6,4 +6,8 @@
     <tr><td>League Id</td><td><%= @league_id %></td></tr>
 </table>
 
+<table>
+  <% @players.each do |player| %>
+  <tr><td><%= player["fullname"] %></td><td><%= player["position"] %></td><td><%= player["headline"] %></td></tr>
+</table>
 <p><%=  @players %></p>
