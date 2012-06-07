@@ -2,7 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb65e840-0c63-45e7-8c82-b8ee76adb13c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/matchup/index.html.erb" afterPath="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/buttons/icons/cross.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/buttons/icons/key.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/buttons/icons/tick.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/icons/doc.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/icons/email.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/icons/external.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/icons/feed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/icons/im.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/icons/lock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/icons/pdf.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/icons/visited.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/icons/xls.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/src/grid.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/ie.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/buttons/readme.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/buttons/screen.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/fancy-type/readme.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/fancy-type/screen.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/readme.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/link-icons/screen.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/rtl/readme.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/plugins/rtl/screen.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/print.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/screen.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/src/forms.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/src/grid.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/src/ie.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/src/print.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/src/reset.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/src/typography.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
     </list>
     <ignored path="iematchup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,6 +63,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="58" selection-start="433" selection-end="433" vertical-scroll-proportion="0.18987341">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="matchup_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -51,19 +90,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="13" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
+            <state line="12" column="8" selection-start="445" selection-end="445" vertical-scroll-proportion="-7.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
+      <file leaf-file-name="matchup.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/matchup.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="8" selection-start="445" selection-end="445" vertical-scroll-proportion="0.2278481">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ie.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/blueprint/ie.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -117,6 +165,7 @@
         <option value="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/Roster.rb" />
         <option value="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -348,6 +397,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
       <recent name="$PROJECT_DIR$/config" />
     </key>
   </component>
@@ -709,11 +759,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="13" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" />
@@ -750,7 +795,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="8" selection-start="445" selection-end="445" vertical-scroll-proportion="0.2278481">
+        <state line="12" column="8" selection-start="445" selection-end="445" vertical-scroll-proportion="-7.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/matchup.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/blueprint/ie.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="58" selection-start="433" selection-end="433" vertical-scroll-proportion="0.18987341">
           <folding />
         </state>
       </provider>
