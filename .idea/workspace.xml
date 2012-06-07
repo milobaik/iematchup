@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cb65e840-0c63-45e7-8c82-b8ee76adb13c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Roster.rb" afterPath="$PROJECT_DIR$/app/models/Roster.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/matchup/index.html.erb" afterPath="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
     </list>
     <ignored path="iematchup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,10 +42,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Roster.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Roster.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/Roster.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="5" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
+            <state line="18" column="50" selection-start="446" selection-end="446" vertical-scroll-proportion="0.33169532">
               <folding />
             </state>
           </provider>
@@ -61,10 +60,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="280" selection-end="280" vertical-scroll-proportion="0.1329114">
+            <state line="8" column="9" selection-start="296" selection-end="296" vertical-scroll-proportion="-5.0">
               <folding />
             </state>
           </provider>
@@ -116,8 +115,8 @@
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/Roster.rb" />
         <option value="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/Roster.rb" />
       </list>
     </option>
   </component>
@@ -735,9 +734,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Roster.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="5" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
+        <state line="8" column="9" selection-start="296" selection-end="296" vertical-scroll-proportion="-5.0">
           <folding />
         </state>
       </provider>
@@ -747,9 +746,9 @@
         <state line="17" column="103" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/models/Roster.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="280" selection-end="280" vertical-scroll-proportion="0.1329114">
+        <state line="18" column="50" selection-start="446" selection-end="446" vertical-scroll-proportion="0.33169532">
           <folding />
         </state>
       </provider>
