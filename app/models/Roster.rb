@@ -13,7 +13,7 @@ class Team
 
   def roster( query_params )
     team = Team.get_roster( query_params )
-    return team["body"]["rosters"]["teams"]
+    return team["body"]["rosters"]["teams"]["players"]
   end
 end
 
