@@ -8,7 +8,8 @@ class MatchupController < ApplicationController
 
      team = Team.new()
 
-     @players = team.roster({ :access_token => @access_token, :format => 'json'})
+     @roster = team.roster({ :access_token => @access_token, :format => 'json'})
+     @players = team.players
 
   end
 

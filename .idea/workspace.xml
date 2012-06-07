@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb65e840-0c63-45e7-8c82-b8ee76adb13c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Roster.rb" afterPath="$PROJECT_DIR$/app/models/Roster.rb" />
     </list>
     <ignored path="iematchup.iws" />
@@ -33,19 +34,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="matchup_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="matchup_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="103" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
+            <state line="12" column="4" selection-start="324" selection-end="324" vertical-scroll-proportion="0.22113022">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Roster.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Roster.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Roster.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="46" selection-start="438" selection-end="438" vertical-scroll-proportion="0.27641279">
+            <state line="19" column="59" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -114,9 +115,9 @@
       <list>
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/Roster.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
       </list>
     </option>
   </component>
@@ -741,14 +742,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="103" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Roster.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="46" selection-start="438" selection-end="438" vertical-scroll-proportion="0.27641279">
+        <state line="19" column="59" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="4" selection-start="324" selection-end="324" vertical-scroll-proportion="0.22113022">
           <folding />
         </state>
       </provider>
