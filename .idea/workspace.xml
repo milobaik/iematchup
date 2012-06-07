@@ -45,7 +45,7 @@
       <file leaf-file-name="Roster.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/Roster.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="52" selection-start="444" selection-end="444" vertical-scroll-proportion="0.27641279">
+            <state line="15" column="46" selection-start="438" selection-end="438" vertical-scroll-proportion="0.27641279">
               <folding />
             </state>
           </provider>
@@ -748,7 +748,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Roster.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="52" selection-start="444" selection-end="444" vertical-scroll-proportion="0.27641279">
+        <state line="15" column="46" selection-start="438" selection-end="438" vertical-scroll-proportion="0.27641279">
           <folding />
         </state>
       </provider>
