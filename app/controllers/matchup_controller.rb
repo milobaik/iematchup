@@ -14,6 +14,13 @@ class MatchupController < ApplicationController
 
       mups = Matchups.new()
       @matchups = mups.get_matchups
+
+      @players.each do |player|
+        mup = @matchups[player["fullname"]]
+        player["opponent"] = mup[:opponent]
+        player["rating"] = mup[:rating]
+        player["analysis"] = mup[:analysis]
+      end
   end
 
   def help

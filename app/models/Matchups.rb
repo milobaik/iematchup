@@ -4,17 +4,14 @@ require 'csv'
 class Matchups
 
     def initialize
-        @mups = Array.new()
+        @mups = Hash.new()
 
           CSV.foreach('app/models/IEMatFOR2012-06-10UPDATED2012-06-03.csv', :headers => :first_row) { |row|
-            player_name = "#{row[4} #{row[5]}"
-            #opp_name = "#{row['opp_first_name']} #{row['opp_last_name']}"
-            #@matchups[player_name] = {opponent: opp_name, rating: row['matchup_rating'],
-                                    #analysis: row['analysis']}
-            @mups.push(player_name)
+            player_name = "#{row[4]} #{row[5]}"
+            opp_name = "#{row[7]} #{row[8]}"
+            matchup = {:player => player_name, :opponent => opp_name, :rating => row[10].to_i, :analysis => row[11]}
+            @mups[player_name] = matchup
           }
-
-
     end
 
     def get_matchups
