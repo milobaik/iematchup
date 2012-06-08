@@ -1,7 +1,9 @@
 Iematchup::Application.routes.draw do
   get "matchup/index"
-
+  get "matchup/:team_id" => 'matchup#team_matchup'
   get "matchup/help"
+
+  get "matchup/raw"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

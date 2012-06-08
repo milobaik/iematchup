@@ -5,13 +5,27 @@ class Team
   base_uri 'http://api.cbssports.com/fantasy/league'
   format :json
 
-  def self.get_roster( query_params )
-    get('/rosters', :query => {:access_token => query_params[:access_token],
-                                  :response_format => query_params[:format]}  )
+  def initialize( query_params )
+    @query_params = query_params
+    puts @query_params
   end
 
-  def roster( query_params )
-    @team = Team.get_roster( query_params )
+  def self.get_resource(resource, query_params)
+    get(resource, :query => query_params)
+  end
+
+  def teams
+    @teams = Team.get_resource('/teams', @query_params)
+    return @teams["body"]["teams"]
+  end
+
+  def roster
+    @team = Team.get_resource('/rosters', @query_params)
+    return @team["body"]["rosters"]["teams"]
+  end
+
+  def roster_for_team(team_id)
+    @team = Team.get_resource("/rosters?team_id=#{team_id}", @query_params)
     return @team["body"]["rosters"]["teams"]
   end
 

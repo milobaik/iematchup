@@ -1,0 +1,16 @@
+<header xmlns="http://www.w3.org/1999/html">
+  <table>
+    <tr><td> <%= image_tag("inside_edge_logo.jpg", :size => '75x75', :alt => 'Inside Edge Scouting Service') %></td>
+      <td><h1>Inside Edge Matchup Analysis</h1></td></tr>
+  </table>
+  <hr/>
+  <table>
+    <tr><td>Access Token</td><td><%= @access_token %> </td></tr>
+    <tr><td>User Id</td><td><%= @user_id %></td></tr>
+    <tr><td>League Id</td><td><%= @league_id %></td></tr>
+  </table>
+</header>
+
+<div class="players">
+    <p> <%= @players %> </p>
+</div>
