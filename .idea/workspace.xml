@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cb65e840-0c63-45e7-8c82-b8ee76adb13c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Matchups.rb" afterPath="$PROJECT_DIR$/app/models/Matchups.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/matchup/index.html.erb" afterPath="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
     </list>
     <ignored path="iematchup.iws" />
@@ -47,7 +46,7 @@
       <file leaf-file-name="IEMatFOR2012-06-10UPDATED2012-06-03.csv" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/IEMatFOR2012-06-10UPDATED2012-06-03.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="0" selection-end="139" vertical-scroll-proportion="0.0">
+            <state line="355" column="89" selection-start="53912" selection-end="53912" vertical-scroll-proportion="-6.482143">
               <folding />
             </state>
           </provider>
@@ -62,10 +61,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="matchup_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="matchup_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="16" selection-start="330" selection-end="330" vertical-scroll-proportion="0.3726708">
+            <state line="28" column="66" selection-start="981" selection-end="981" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -80,10 +79,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="93" selection-start="479" selection-end="479" vertical-scroll-proportion="-6.875">
+            <state line="22" column="0" selection-start="793" selection-end="793" vertical-scroll-proportion="0.65346533">
               <folding />
             </state>
           </provider>
@@ -138,8 +137,8 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/models/IEMatFOR2012-06-10UPDATED2012-06-03.csv" />
         <option value="$PROJECT_DIR$/app/models/Matchups.rb" />
-        <option value="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
       </list>
     </option>
   </component>
@@ -151,9 +150,9 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="402" />
+    <option name="x" value="74" />
     <option name="y" value="25" />
-    <option name="width" value="1185" />
+    <option name="width" value="1513" />
     <option name="height" value="970" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -659,18 +658,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="402" y="25" width="1185" height="970" extended-state="0" />
+    <frame x="74" y="25" width="1513" height="970" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39458087" sideWeight="0.67052025" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30881378" sideWeight="0.67052025" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32947975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32947975" sideWeight="0.9900596" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -784,13 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/IEMatFOR2012-06-10UPDATED2012-06-03.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="0" selection-end="139" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Matchups.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="81" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0">
@@ -805,16 +797,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="93" selection-start="479" selection-end="479" vertical-scroll-proportion="-6.875">
+        <state line="28" column="66" selection-start="981" selection-end="981" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/IEMatFOR2012-06-10UPDATED2012-06-03.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="16" selection-start="330" selection-end="330" vertical-scroll-proportion="0.3726708">
+        <state line="355" column="89" selection-start="53912" selection-end="53912" vertical-scroll-proportion="-6.482143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="793" selection-end="793" vertical-scroll-proportion="0.65346533">
           <folding />
         </state>
       </provider>
