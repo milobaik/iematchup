@@ -20,7 +20,16 @@
   <% @players.each do |player| %>
   <tr><td><%= player["fullname"] %></td><td><%= player["position"] %></td>
     <td><%= player["opponent"] %></td>
-    <td><% rating = ''; player["rating"].times { rating += '*' } %><%= rating %></td>
+    <td> <%= if player["rating"] > 0
+             if player["rating"] >= 3
+                image_tag("thumbsup.jpg", :size => '20x20')
+             else
+                image_tag("thumbsdown.jpg", :size => '20x20')
+             end
+            end
+        %>
+      <br/><%= rating = ''; player["rating"].times { rating += '*' }; rating %>
+    </td>
     <td><%= player["analysis"] %></td></tr>
   <% end %>
 </table>
