@@ -1,15 +1,27 @@
-<h1>Matchup#index</h1>
+<!--<h1>Matchup#index</h1>
 <p>Find me in app/views/matchup/index.html.erb</p>
 <table>
     <tr><td>Access Token</td><td><%= @access_token %> </td></tr>
     <tr><td>User Id</td><td><%= @user_id %></td></tr>
     <tr><td>League Id</td><td><%= @league_id %></td></tr>
 </table>
+-->
+<header>
+  <table>
+    <tr><td> <%= image_tag("inside_edge_logo.jpg", :size => '75x75', :alt => 'Inside Edge Scouting Service') %></td>
+      <td><h1>Inside Edge Matchup Analysis</h1></td></tr>
+  </table>
+  <hr/>
+</header>
 
-<table>
+<div class="player_matchups">
+<table class="player_matchups">
+  <tr><th>Player</th><th>Position</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr>
   <% @players.each do |player| %>
   <tr><td><%= player["fullname"] %></td><td><%= player["position"] %></td>
-    <td><%= player["opponent"] %></td><td><%= player["rating"]%></td><td><%= player["analysis"] %></td></tr>
+    <td><%= player["opponent"] %></td>
+    <td><% rating = ''; player["rating"].times { rating += '*' } %><%= rating %></td>
+    <td><%= player["analysis"] %></td></tr>
   <% end %>
 </table>
 
@@ -20,3 +32,4 @@
   <% end %>
 </table>
 -->
+</div>

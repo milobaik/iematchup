@@ -27,6 +27,9 @@ class MatchupController < ApplicationController
           player["analysis"] = mup[:analysis]
         else
           puts "player: #{player["fullname"]} not in matchup file."
+          player["opponent"] = "None"
+          player["rating"] = 0
+          player["analysis"] = "None"
         end
       end
   end
