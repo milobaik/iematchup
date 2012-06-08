@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb65e840-0c63-45e7-8c82-b8ee76adb13c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/matchup/index.html.erb" afterPath="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/matchup/raw.html.erb" afterPath="$PROJECT_DIR$/app/views/matchup/raw.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <ignored path="iematchup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,7 +81,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="44" selection-start="829" selection-end="829" vertical-scroll-proportion="0.39634147">
+            <state line="22" column="10" selection-start="734" selection-end="734" vertical-scroll-proportion="0.2970297">
               <folding />
             </state>
           </provider>
@@ -95,7 +90,7 @@
       <file leaf-file-name="team_matchup.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="35" selection-start="826" selection-end="826" vertical-scroll-proportion="-8.75">
+            <state line="19" column="13" selection-start="521" selection-end="743" vertical-scroll-proportion="-4.375">
               <folding />
             </state>
           </provider>
@@ -113,7 +108,7 @@
       <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="27" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
+            <state line="27" column="101" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -834,13 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="27" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="109" selection-start="2447" selection-end="2447" vertical-scroll-proportion="0.0">
@@ -855,16 +843,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="101" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="35" selection-start="826" selection-end="826" vertical-scroll-proportion="-8.75">
+        <state line="19" column="13" selection-start="521" selection-end="743" vertical-scroll-proportion="-4.375">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="44" selection-start="829" selection-end="829" vertical-scroll-proportion="0.39634147">
+        <state line="22" column="10" selection-start="734" selection-end="734" vertical-scroll-proportion="0.2970297">
           <folding />
         </state>
       </provider>
