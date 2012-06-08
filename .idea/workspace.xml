@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb65e840-0c63-45e7-8c82-b8ee76adb13c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/matchup/index.html.erb" afterPath="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb" afterPath="$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb" />
     </list>
     <ignored path="iematchup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,19 +78,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="85" selection-start="867" selection-end="867" vertical-scroll-proportion="0.41584158">
+            <state line="26" column="85" selection-start="846" selection-end="867" vertical-scroll-proportion="-8.75">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="team_matchup.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="team_matchup.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="13" selection-start="521" selection-end="743" vertical-scroll-proportion="-4.375">
+            <state line="26" column="85" selection-start="876" selection-end="876" vertical-scroll-proportion="0.41584158">
               <folding />
             </state>
           </provider>
@@ -139,8 +139,8 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/matchup/raw.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb" />
         <option value="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb" />
       </list>
     </option>
   </component>
@@ -850,16 +850,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="521" selection-end="743" vertical-scroll-proportion="-4.375">
+        <state line="26" column="85" selection-start="846" selection-end="867" vertical-scroll-proportion="-8.75">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="85" selection-start="867" selection-end="867" vertical-scroll-proportion="0.41584158">
+        <state line="26" column="85" selection-start="876" selection-end="876" vertical-scroll-proportion="0.41584158">
           <folding />
         </state>
       </provider>
