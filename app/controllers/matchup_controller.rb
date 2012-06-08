@@ -76,9 +76,9 @@ class MatchupController < ApplicationController
     @user_id = params[:user_id]
     @league_id = params[:league_id]
 
-    team = Team.new()
+    team = Team.new(:access_token => @access_token, :response_format => 'json')
 
-    @roster = team.roster({ :access_token => @access_token, :format => 'json'})
+    @roster = team.roster
     @players = team.players
 
   end
