@@ -12,8 +12,8 @@ class MatchupController < ApplicationController
      @roster = team.roster({ :access_token => @access_token, :format => 'json'})
      @players = team.players
 
-      @matchups = Matchups.new()
-
+      mups = Matchups.new()
+      @matchups = mups.get_matchups
   end
 
   def help
