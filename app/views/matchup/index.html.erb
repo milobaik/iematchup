@@ -6,6 +6,13 @@
     <tr><td>League Id</td><td><%= @league_id %></td></tr>
 </table>
 -->
+<script type="text/javascript">
+  $(document).ready(function() {
+     // init the table for dnd
+      $("#roster").tableDnD();
+  });
+</script>
+
 <header>
   <table>
     <tr><td> <%= image_tag("inside_edge_logo.jpg", :size => '75x75', :alt => 'Inside Edge Scouting Service') %></td>
@@ -26,10 +33,10 @@
   <table>
     <tr><td><h3><%= "#{@roster[0]["name"]}" %></h3></td><td><h3>Matchups For Game Day: 6/8/2012</h3></td></tr>
   </table>
-<table class="player_matchups">
+<table id='roster' class="player_matchups" cellpadding="2" cellspacing="0">
   <tr><th>Player</th><th>Position</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr>
-  <% @players.each do |player| %>
-  <tr><td><%= player["fullname"] %></td><td><%= player["position"] %></td>
+  <% row = 1; @players.each do |player| %>
+  <tr id="<%= row %>" ><td><%= player["fullname"] %></td><td><%= player["position"] %></td>
     <td><%= player["opponent"] %></td>
     <td> <%= if player["rating"] > 0
              if player["rating"] >= 3
@@ -42,7 +49,7 @@
       <br/><%= rating = ''; player["rating"].times { rating += '*' }; rating %>
     </td>
     <td><%= player["analysis"] %></td></tr>
-  <% end %>
+  <% row += 1; end %>
 </table>
 
 <!-- <table>
