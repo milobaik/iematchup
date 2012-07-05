@@ -7,10 +7,169 @@
 </table>
 -->
 <script type="text/javascript">
+
+  function rosterDrop(table, row) {
+      var rows = table.tBodies[0].rows;
+      var i = 1;
+      var orig_row = row.id;
+
+      while(rows[i].id != row.id) {
+          console.log("orig_row: " + orig_row + "cur_row: " + rows[i].id );
+          i++;
+      }
+
+      var row_id = 1;
+      $("#roster tr.player").each( function(index, value) {
+          $(this).attr('id', row_id );
+          row_id++;
+      });
+
+      alert('Roster Drop: orig row:' + orig_row + 'new row:' + i);
+
+  }
+
   $(document).ready(function() {
      // init the table for dnd
-      $("#roster").tableDnD();
-  });
+     //$("#roster").tableDnD( { onDrop: rosterDrop });
+     //$("#roster tr").hover(function() { $this.cells[0].addClass('showDragHandle'); },
+     //                      function() { $this.cells[0].removeClass('showDragHandle'); });
+      var c = {};
+      var dragId;
+
+      var teamRoster = <%= @team_roster_json.html_safe %>;
+      var playerList = <%= @player_list_json.html_safe %>;
+      //var teamRoster = JSON.parse(playerList);
+      var plt = jsontemplate.Template("{#template defining table of players on fantasy team roster} \
+         <table id=\"roster_matchups\" class=\"player_matchups\" cellpadding=\"2\" cellspacing=\"0\">    \
+         <tbody>                                                                                 \
+            {.section batters} \
+                <tr class=\"player_type_title\"><td colspan='5'>Batters</td></tr>                            \
+                <tr class=\"player_matchups_header\"><th>Pos</th><th>Player</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr> \
+                {.repeated section @}                                                                      \
+                    <tr id={id} class=\"player\">                                                         \
+                        <td>{roster_pos}</td>                                                              \
+                        <td class=\"player_name_cell\"><a href=\"{profile_url}\">{name}</a><br>({mlb_pos}){mlb_team}</td>               \
+                        <td>{opponent}</td>                                                                \
+                        <td>{rating}</td>                                                                  \
+                        <td>{analysis}</td></tr>                                                           \
+                {.end}                                                                                     \
+            {.end}                                                                                         \
+            {.section bench_batters} \
+               <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
+                {.repeated section @}                                                                      \
+                    <tr id={id} class=\"player\">                                                         \
+                        <td>Bench({roster_pos})</td>                                                              \
+                        <td class=\"player_name_cell\"><a href=\"{profile_url}\">{name}</a><br>({mlb_pos}){mlb_team}</td>               \
+                        <td>{opponent}</td>                                                                \
+                        <td>{rating}</td>                                                                  \
+                        <td>{analysis}</td></tr>                                                           \
+                {.end}                                                                                     \
+            {.end}                                                                                         \
+            {.section pitchers}                                                                            \
+                <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
+                <tr class=\"player_type_title\"><td colspan='5'>Pitchers</td></tr>                         \
+                <tr class=\"player_matchups_header\"><th>Pos</th><th>Player</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr> \
+                {.repeated section @}                                                                      \
+                    <tr id={id} class=\"player\">                                                         \
+                        <td>{roster_pos}</td>                                                              \
+                        <td class=\"player_name_cell\"><a href=\"{profile_url}\">{name}</a><br>({mlb_pos}){mlb_team}</td>             \
+                        <td>{opponent}</td>                                                                \
+                        <td>{rating}</td>                                                                  \
+                        <td>{analysis}</td></tr>                                                           \
+                {.end}                                                                                     \
+            {.end}                                                                                         \
+            {.section bench_pitchers} \
+               <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
+                {.repeated section @}                                                                      \
+                    <tr id={id} class=\"player\">                                                         \
+                        <td>Bench({roster_pos})</td>                                                              \
+                        <td class=\"player_name_cell\"><a href=\"{profile_url}\">{name}</a><br>({mlb_pos}){mlb_team}</td>               \
+                        <td>{opponent}</td>                                                                \
+                        <td>{rating}</td>                                                                  \
+                        <td>{analysis}</td></tr>                                                           \
+                {.end}\
+                <tr style=\"display:none;\" class=\"empty\"><td colspan='5'>Can't see me</td></tr>         \
+            {.end}                                                                                         \
+         </tbody> </table>" );
+
+      function createRosterMatchupTable()
+      {
+         var mut = plt.expand(playerList);
+         document.getElementById("roster").innerHTML = mut;
+         $("tr.player").draggable( {
+              helper: "clone",
+              start:  startDrag,
+              stop: stopDrag
+         });
+
+         //$("#roster_matchups tr").droppable({
+         //     drop: dropPlayer
+         //} );
+      }
+
+      function enableDropOnEligiblePlayers( players, id, pos, tr_offset) {
+          for (var i = 0; i < players.length; i++ ) {
+              console.log("Player: " + players[i].name + " eligible: " + players[i].eligible.toString());
+              if ( players[i].eligible.indexOf(pos) != -1 ) {
+                  console.log("Row: " + i + " Player: " + players[i].name + " is eligible.");
+                  trow = i + tr_offset;
+                  if(players[i].id == id) {
+                      $("#roster_matchups tr").eq(trow).addClass("selected_roster_row");
+                  } else {
+                      $("#roster_matchups tr").eq(trow).droppable({
+                          drop: dropPlayer
+                      } );
+                      $("#roster_matchups tr").eq(trow).addClass("valid_roster_move_row");
+                  }
+              }
+          }
+      }
+
+      function startDrag(event, ui) {
+          c.tr = this;
+          c.helper = ui.helper;
+          dragId = $(this).attr('id');
+
+          var section = teamRoster[dragId].section;
+          var idx = teamRoster[dragId].idx;
+          var movePos = teamRoster[dragId].roster_pos;
+          console.log("id: " + dragId + "section: " + section + "idx: " + idx + "Position: " + movePos);
+          if ( movePos != "P") {
+              enableDropOnEligiblePlayers(playerList.batters, dragId, movePos, 2);
+              enableDropOnEligiblePlayers(playerList.bench_batters, dragId, movePos, playerList.batters.length + 3);
+          } else {
+              enableDropOnEligiblePlayers(playerList.pitchers, dragId, movePos,
+                      playerList.batters.length + playerList.bench_batters.length + 6);
+              enableDropOnEligiblePlayers(playerList.bench_pitchers, dragId, movePos,
+                      playerList.batters.length + playerList.bench_batters.length +
+                              playerList.pitchers.length + 7);
+          }
+      }
+
+      function stopDrag(event, ui) {
+        var stopId = $(this).attr('id');
+        console.log("dragging stopped.  dragId: " + dragId + "stopRow: " + stopId)
+        $("#roster_matchups").remove();
+        createRosterMatchupTable();
+      }
+
+      function dropPlayer(event, ui) {
+          var dropRow = $(this).attr('id')
+          var tempRow = teamRoster.batters[dropRow];
+          tempRow.row = dragRow;
+          teamRoster.batters[dragRow].row = dropRow;
+          console.log("dropping on row: " + dropRow + "player" + tempRow.name);
+          teamRoster.batters[dropRow] = teamRoster.batters[dragRow];
+          teamRoster.batters[dragRow] = tempRow;
+
+          $("#roster_matchups").remove();
+          createRosterMatchupTable();
+          //$(c.helper).remove();
+      }
+
+      createRosterMatchupTable();
+
+    } );
 </script>
 
 <header>
@@ -22,41 +181,24 @@
 </header>
 
 <div class="teams">
-  <table>  <tr>
+  <table class="league_team_links">  <tr>
     <% @teams.each do |team| %>
         <td><a href="<%= "/matchup/#{team["id"]}?access_token=#{@access_token}?response_format=json" %>"><%= team["name"] %></a></td>
     <% end %>
   </tr>
   </table>
 </div>
-<div class="player_matchups">
-  <table>
+<div id='players' class="player_matchups">
+  <table class="roster_matchups_team">
     <tr><td><h3><%= "#{@roster[0]["name"]}" %></h3></td><td><h3>Matchups For Game Day: 6/8/2012</h3></td></tr>
   </table>
-<table id='roster' class="player_matchups" cellpadding="2" cellspacing="0">
-  <tr><th>Player</th><th>Position</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr>
-  <% row = 1; @players.each do |player| %>
-  <tr id="<%= row %>" ><td><%= player["fullname"] %></td><td><%= player["position"] %></td>
-    <td><%= player["opponent"] %></td>
-    <td> <%= if player["rating"] > 0
-             if player["rating"] >= 3
-                image_tag("thumbsup.jpg", :size => '20x20')
-             else
-                image_tag("thumbsdown.jpg", :size => '20x20')
-             end
-            end
-        %>
-      <br/><%= rating = ''; player["rating"].times { rating += '*' }; rating %>
-    </td>
-    <td><%= player["analysis"] %></td></tr>
-  <% row += 1; end %>
-</table>
 
-<!-- <table>
-  <% @matchups.each do |player, mup| %>
-        <tr><td> <%=  mup[:player] %></td><td><%= mup[:opponent] %></td>
-            <td><% rating = ''; mup[:rating].times { rating += '*' } %><%= rating %></td><td><%= mup[:analysis] %></td></tr>
-  <% end %>
-</table>
--->
+<div id='roster' class="player_matchups">
+
+</div>
+
+<div id='raw_team_roster'>
+  <h2>Raw Team Roster Data</h2>
+  <%= @player_list_json %>
+</div>
 </div>

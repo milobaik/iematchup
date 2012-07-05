@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb65e840-0c63-45e7-8c82-b8ee76adb13c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/tablednd.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/screen.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/blueprint/screen.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/custom.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Roster.rb" afterPath="$PROJECT_DIR$/app/models/Roster.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/matchup/index.html.erb" afterPath="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/jqtut.html" afterPath="$PROJECT_DIR$/public/jqtut.html" />
     </list>
     <ignored path="iematchup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,10 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Matchups.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Matchups.rb">
+      <file leaf-file-name="matchup_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="81" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0">
+            <state line="45" column="95" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -40,25 +43,7 @@
       <file leaf-file-name="Roster.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/Roster.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="67" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="matchup_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="109" selection-start="2447" selection-end="2447" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="43" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
+            <state line="39" column="7" selection-start="957" selection-end="957" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -67,34 +52,34 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="97" selection-start="418" selection-end="418" vertical-scroll-proportion="0.20792079">
-              <folding />
+            <state line="144" column="60" selection-start="9067" selection-end="9067" vertical-scroll-proportion="0.91159135">
+              <folding>
+                <marker date="1341515742000" expanded="true" signature="1498:1519" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:1880" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:1920" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:2041" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:2145" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:2330" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:2390" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:2497" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:2613" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:2696" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:6740" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:6746" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:6741" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:4385" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:2946" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:1797" placeholder="..." />
+                <marker date="1341515742000" expanded="true" signature="1498:1773" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="team_matchup.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb">
+      <file leaf-file-name="temp.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/matchup/temp.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="35" selection-start="1526" selection-end="1526" vertical-scroll-proportion="-27.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="matchup_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/matchup_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="40" selection-start="366" selection-end="366" vertical-scroll-proportion="-8.75">
+            <state line="18" column="8" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -103,16 +88,43 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="14" selection-start="641" selection-end="641" vertical-scroll-proportion="-13.75">
+            <state line="22" column="33" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tablednd.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/tablednd.js">
+      <file leaf-file-name="jqtut.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/jqtut.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="83" selection-start="821" selection-end="821" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="92" column="19" selection-start="1368" selection-end="1368" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matchup.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/matchup.css.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/blueprint/screen.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="38" selection-start="1165" selection-end="1203" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -134,18 +146,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/IEMatFOR2012-06-10UPDATED2012-06-03.csv" />
         <option value="$PROJECT_DIR$/app/models/Matchups.rb" />
-        <option value="$PROJECT_DIR$/app/models/Roster.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/matchup/raw.html.erb" />
-        <option value="$PROJECT_DIR$/public/jqtut.html" />
         <option value="$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/tablednd.js" />
+        <option value="$PROJECT_DIR$/public/jqtut.html" />
+        <option value="$PROJECT_DIR$/public/card_style.css" />
+        <option value="$PROJECT_DIR$/app/views/matchup/temp.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/blueprint/screen.css" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.css" />
+        <option value="$PROJECT_DIR$/app/models/Roster.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
       </list>
     </option>
@@ -158,10 +173,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="105" />
+    <option name="x" value="-2" />
     <option name="y" value="25" />
-    <option name="width" value="1478" />
-    <option name="height" value="970" />
+    <option name="width" value="1684" />
+    <option name="height" value="1004" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -189,6 +204,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -387,6 +412,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blueprint" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iematchup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iematchup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -421,18 +472,17 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -589,7 +639,7 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method>
@@ -734,18 +784,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="105" y="25" width="1478" height="970" extended-state="0" />
-    <editor active="false" />
+    <frame x="-2" y="25" width="1684" height="1004" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31614655" sideWeight="0.67052025" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18690476" sideWeight="0.6829811" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947975" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32947975" sideWeight="0.9836956" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3170189" sideWeight="0.9836956" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -811,113 +861,107 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom.css">
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="79" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="24" column="43" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/matchup/raw.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="117" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/IEMatFOR2012-06-10UPDATED2012-06-03.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="43" selection-start="19302" selection-end="19307" vertical-scroll-proportion="-18.803572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/tablednd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/matchup/help.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/jqtut.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="44" selection-start="180" selection-end="180" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="40" selection-start="366" selection-end="366" vertical-scroll-proportion="-8.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="35" selection-start="1526" selection-end="1526" vertical-scroll-proportion="-27.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/matchup_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Roster.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="67" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Matchups.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="81" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0">
+        <state line="18" column="81" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/matchup/team_matchup.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="35" selection-start="1526" selection-end="1526" vertical-scroll-proportion="-14.375" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/card_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="16" selection-start="1878" selection-end="1878" vertical-scroll-proportion="0.026642984" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/IEMatFOR2012-06-10UPDATED2012-06-03.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="-0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/matchup/temp.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="8" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="33" selection-start="896" selection-end="896" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/jqtut.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="83" selection-start="821" selection-end="821" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="19" selection-start="1368" selection-end="1368" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/matchup.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/blueprint/screen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="38" selection-start="1165" selection-end="1203" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Roster.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="7" selection-start="957" selection-end="957" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/matchup_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="109" selection-start="2447" selection-end="2447" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="43" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/tablednd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="14" selection-start="641" selection-end="641" vertical-scroll-proportion="-13.75">
+        <state line="45" column="95" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="97" selection-start="418" selection-end="418" vertical-scroll-proportion="0.20792079">
-          <folding />
+        <state line="144" column="60" selection-start="9067" selection-end="9067" vertical-scroll-proportion="0.91159135">
+          <folding>
+            <marker date="1341515742000" expanded="true" signature="1498:1519" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:1880" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:1920" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:2041" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:2145" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:2330" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:2390" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:2497" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:2613" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:2696" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:6740" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:6746" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:6741" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:4385" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:2946" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:1797" placeholder="..." />
+            <marker date="1341515742000" expanded="true" signature="1498:1773" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

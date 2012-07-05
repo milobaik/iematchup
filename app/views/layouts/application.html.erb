@@ -8,10 +8,16 @@
   <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
   <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
   <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
-  <%=  stylesheet_link_tag '_custom', :media => 'screen' %>
+  <%=  stylesheet_link_tag 'custom', :media => 'screen' %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "jquery-1.7.2" %>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+<!--
+ <%= javascript_include_tag "jquery-1.7.2" %>
+-->
   <%= javascript_include_tag "tablednd" %>
+  <%= javascript_include_tag "json-template" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>

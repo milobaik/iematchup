@@ -2,10 +2,6 @@
     width: 710px;
 }
 
-body {
-    background: #cff;
-}
-
 header {
     padding-top: 20px;
 }
@@ -88,6 +84,13 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+table.player_matchups, th, td {border: 0.10em solid #d3d3d3;}
+tr.player_matchups_header { background: #808080}
+table.league_team_links { background: #fafad2 }
+table.roster_matchups_team { background: silver}
+.player_type_title { background: #00008b; font-size: 130%; color: #f5f5f5; font-weight: bold;  }
+.matchup_table_spacer_row { background: #d3d3d3}
+td.player_name_cell { white-space: nowrap; }
 
 /* Sign up button */
 a.signup_button {
@@ -109,3 +112,6 @@ a.signup_button {
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
+
+.selected_roster_row { background: #e0ffff;}
+.valid_roster_move_row { background: #adff2f;}

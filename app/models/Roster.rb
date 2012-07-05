@@ -32,5 +32,18 @@ class Team
   def players
     return @team["body"]["rosters"]["teams"][0]["players"]
   end
+
+  def players_by_position( position )
+    puts "Filter players for pos: #{position}"
+    ids = []
+    @team["body"]["rosters"]["teams"][0]["players"].each do |player|
+      #puts "player: #{player["id"]} #{player["roster_pos"]}"
+      if player["roster_pos"] == position
+        #puts "r: #{position} p: #{player["roster_pos"]} id: #{player["id"]}}"
+        ids << player["id"]
+      end
+    end
+    return ids
+  end
 end
 
