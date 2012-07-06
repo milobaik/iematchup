@@ -7,39 +7,15 @@
 </table>
 -->
 <script type="text/javascript">
+    var c = {};
+    var dragId;
 
-  function rosterDrop(table, row) {
-      var rows = table.tBodies[0].rows;
-      var i = 1;
-      var orig_row = row.id;
+    var teamRoster = <%= @team_roster_json.html_safe %>;
+    var playerList = <%= @player_list_json.html_safe %>;
 
-      while(rows[i].id != row.id) {
-          console.log("orig_row: " + orig_row + "cur_row: " + rows[i].id );
-          i++;
-      }
-
-      var row_id = 1;
-      $("#roster tr.player").each( function(index, value) {
-          $(this).attr('id', row_id );
-          row_id++;
-      });
-
-      alert('Roster Drop: orig row:' + orig_row + 'new row:' + i);
-
-  }
-
-  $(document).ready(function() {
-     // init the table for dnd
-     //$("#roster").tableDnD( { onDrop: rosterDrop });
-     //$("#roster tr").hover(function() { $this.cells[0].addClass('showDragHandle'); },
-     //                      function() { $this.cells[0].removeClass('showDragHandle'); });
-      var c = {};
-      var dragId;
-
-      var teamRoster = <%= @team_roster_json.html_safe %>;
-      var playerList = <%= @player_list_json.html_safe %>;
-      //var teamRoster = JSON.parse(playerList);
-      var plt = jsontemplate.Template("{#template defining table of players on fantasy team roster} \
+    // template for converting team roster defined as a JSON array into an html table for display on the
+    // IE matchup app main page
+    var plt = jsontemplate.Template("{#template defining table of players on fantasy team roster} \
          <table id=\"roster_matchups\" class=\"player_matchups\" cellpadding=\"2\" cellspacing=\"0\">    \
          <tbody>                                                                                 \
             {.section batters} \
@@ -92,84 +68,95 @@
             {.end}                                                                                         \
          </tbody> </table>" );
 
-      function createRosterMatchupTable()
-      {
-         var mut = plt.expand(playerList);
-         document.getElementById("roster").innerHTML = mut;
-         $("tr.player").draggable( {
-              helper: "clone",
-              start:  startDrag,
-              stop: stopDrag
-         });
+    function createRosterMatchupTable()
+  {
+      var mut = plt.expand(playerList);
+      document.getElementById("roster").innerHTML = mut;
+      $("tr.player").draggable( {
+          helper: "clone",
+          start:  startDrag,
+          stop: stopDrag
+      });
+  }
 
-         //$("#roster_matchups tr").droppable({
-         //     drop: dropPlayer
-         //} );
-      }
-
-      function enableDropOnEligiblePlayers( players, id, pos, tr_offset) {
-          for (var i = 0; i < players.length; i++ ) {
-              console.log("Player: " + players[i].name + " eligible: " + players[i].eligible.toString());
-              if ( players[i].eligible.indexOf(pos) != -1 ) {
-                  console.log("Row: " + i + " Player: " + players[i].name + " is eligible.");
-                  trow = i + tr_offset;
-                  if(players[i].id == id) {
-                      $("#roster_matchups tr").eq(trow).addClass("selected_roster_row");
-                  } else {
-                      $("#roster_matchups tr").eq(trow).droppable({
-                          drop: dropPlayer
-                      } );
-                      $("#roster_matchups tr").eq(trow).addClass("valid_roster_move_row");
-                  }
+  function enableDropOnEligiblePlayers( players, id, pos, tr_offset) {
+      for (var i = 0; i < players.length; i++ ) {
+          //console.log("Player: " + players[i].name + " eligible: " + players[i].eligible.toString());
+          if ( players[i].eligible.indexOf(pos) != -1 ) {
+              console.log("Row: " + i + " Player: " + players[i].name + " is eligible.");
+              trow = i + tr_offset;
+              if(players[i].id == id) {
+                  $("#roster_matchups tr").eq(trow).addClass("selected_roster_row");
+              } else {
+                  $("#roster_matchups tr").eq(trow).droppable({
+                      drop: dropPlayer
+                  } );
+                  $("#roster_matchups tr").eq(trow).addClass("valid_roster_move_row");
               }
           }
       }
+  }
 
-      function startDrag(event, ui) {
-          c.tr = this;
-          c.helper = ui.helper;
-          dragId = $(this).attr('id');
+  function startDrag(event, ui) {
+      c.tr = this;
+      c.helper = ui.helper;
+      dragId = $(this).attr('id');
 
-          var section = teamRoster[dragId].section;
-          var idx = teamRoster[dragId].idx;
-          var movePos = teamRoster[dragId].roster_pos;
-          console.log("id: " + dragId + "section: " + section + "idx: " + idx + "Position: " + movePos);
-          if ( movePos != "P") {
-              enableDropOnEligiblePlayers(playerList.batters, dragId, movePos, 2);
-              enableDropOnEligiblePlayers(playerList.bench_batters, dragId, movePos, playerList.batters.length + 3);
-          } else {
-              enableDropOnEligiblePlayers(playerList.pitchers, dragId, movePos,
-                      playerList.batters.length + playerList.bench_batters.length + 6);
-              enableDropOnEligiblePlayers(playerList.bench_pitchers, dragId, movePos,
-                      playerList.batters.length + playerList.bench_batters.length +
-                              playerList.pitchers.length + 7);
-          }
+      var section = teamRoster[dragId].section;
+      var idx = teamRoster[dragId].idx;
+      var movePos = teamRoster[dragId].roster_pos;
+      console.log("id: " + dragId + " section: " + section + "idx: " + idx + " Position: " + movePos);
+      if ( movePos != "P") {
+          enableDropOnEligiblePlayers(playerList.batters, dragId, movePos, 2);
+          enableDropOnEligiblePlayers(playerList.bench_batters, dragId, movePos, playerList.batters.length + 3);
+      } else {
+          enableDropOnEligiblePlayers(playerList.pitchers, dragId, movePos,
+                  playerList.batters.length + playerList.bench_batters.length + 6);
+          enableDropOnEligiblePlayers(playerList.bench_pitchers, dragId, movePos,
+                  playerList.batters.length + playerList.bench_batters.length +
+                          playerList.pitchers.length + 7);
       }
+  }
 
-      function stopDrag(event, ui) {
-        var stopId = $(this).attr('id');
-        console.log("dragging stopped.  dragId: " + dragId + "stopRow: " + stopId)
-        $("#roster_matchups").remove();
-        createRosterMatchupTable();
-      }
+  function stopDrag(event, ui) {
+      var stopId = $(this).attr('id');
+      console.log("dragging stopped.  dragId: " + dragId + "stopRow: " + stopId)
+      $("#roster_matchups").remove();
+      createRosterMatchupTable();
+  }
 
-      function dropPlayer(event, ui) {
-          var dropRow = $(this).attr('id')
-          var tempRow = teamRoster.batters[dropRow];
-          tempRow.row = dragRow;
-          teamRoster.batters[dragRow].row = dropRow;
-          console.log("dropping on row: " + dropRow + "player" + tempRow.name);
-          teamRoster.batters[dropRow] = teamRoster.batters[dragRow];
-          teamRoster.batters[dragRow] = tempRow;
+  function dropPlayer(event, ui) {
+      var dropId= $(this).attr('id')
+      var dropSection = teamRoster[dropId].section;
+      var dropIdx = teamRoster[dropId].idx;
+      var dropPos = teamRoster[dropId].roster_pos;
+      var section = teamRoster[dragId].section;
+      var idx = teamRoster[dragId].idx;
+      var movePos = teamRoster[dragId].roster_pos;
+      console.log("DRAG: id: " + dragId + " section: " + section + " idx: " + idx + "  Position: " + movePos);
+      console.log("DROP: id: " + dropId + " section: " + dropSection + " idx: " + dropIdx + "  Position: " + dropPos);
 
-          $("#roster_matchups").remove();
-          createRosterMatchupTable();
-          //$(c.helper).remove();
-      }
+      teamRoster[dropId].section = section;
+      teamRoster[dropId].idx = idx;
+      teamRoster[dropId].roster_pos = movePos;
+      playerList[section][idx] = teamRoster[dropId];
 
+      teamRoster[dragId].section = dropSection;
+      teamRoster[dragId].idx = dropIdx;
+      teamRoster[dragId].roster_pos = dropPos;
+      playerList[dropSection][dropIdx] = teamRoster[dragId];
+
+      $(c.helper).remove();
+      $("#roster_matchups").remove();
+      createRosterMatchupTable();
+  }
+
+
+  $(document).ready(function() {
       createRosterMatchupTable();
 
     } );
+
 </script>
 
 <header>
@@ -197,8 +184,4 @@
 
 </div>
 
-<div id='raw_team_roster'>
-  <h2>Raw Team Roster Data</h2>
-  <%= @player_list_json %>
-</div>
 </div>
