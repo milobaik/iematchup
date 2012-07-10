@@ -40,6 +40,7 @@
                         <td>{rating}</td>                                                                  \
                         <td>{analysis}</td></tr>                                                           \
                 {.end}                                                                                     \
+                <tr style=\"display:none;\" class=\"empty_bench_batter\"><td>Bench</td><td>Empty</td><td> </td><td></td><td></td></tr>         \
             {.end}                                                                                         \
             {.section pitchers}                                                                            \
                 <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
@@ -63,8 +64,8 @@
                         <td>{opponent}</td>                                                                \
                         <td>{rating}</td>                                                                  \
                         <td>{analysis}</td></tr>                                                           \
-                {.end}\
-                <tr style=\"display:none;\" class=\"empty\"><td colspan='5'>Can't see me</td></tr>         \
+                {.end}           \
+                <tr style=\"display:none;\" class=\"empty_bench_pitcher\"><td>Bench</td><td>Empty<br>&nbsp;</td><td> </td><td></td><td></td></tr>         \
             {.end}                                                                                         \
          </tbody> </table>" );
 
@@ -97,6 +98,14 @@
       }
   }
 
+  function enableDropOnEmptyBenchBatter( ) {
+    var emptyBenchSlot = $("#roster_matchups tr.empty_bench_batter");
+    emptyBenchSlot.removeAttr("style");
+    emptyBenchSlot.droppable( { drop: dropPlayer
+                              });
+    emptyBenchSlot.addClass("valid_roster_move_row");
+  }
+
   function startDrag(event, ui) {
       c.tr = this;
       c.helper = ui.helper;
@@ -109,12 +118,14 @@
       if ( movePos != "P") {
           enableDropOnEligiblePlayers(playerList.batters, dragId, movePos, 2);
           enableDropOnEligiblePlayers(playerList.bench_batters, dragId, movePos, playerList.batters.length + 3);
+          enableDropOnEmptyBenchBatter();
       } else {
-          enableDropOnEligiblePlayers(playerList.pitchers, dragId, movePos,
-                  playerList.batters.length + playerList.bench_batters.length + 6);
+          //enableDropOnEligiblePlayers(playerList.pitchers, dragId, movePos,
+          //        playerList.batters.length + playerList.bench_batters.length + 6);
           enableDropOnEligiblePlayers(playerList.bench_pitchers, dragId, movePos,
                   playerList.batters.length + playerList.bench_batters.length +
                           playerList.pitchers.length + 7);
+          enableDropOnEmptyBenchPitcher();
       }
   }
 

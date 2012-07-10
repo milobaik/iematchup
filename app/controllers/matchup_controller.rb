@@ -68,7 +68,6 @@ class MatchupController < ApplicationController
           @team_roster[id][:section] = player_type
           @team_roster[id][:idx] = @player_list[player_type].length
           @player_list[player_type] << @team_roster[id]
-
         end
       end
     end
