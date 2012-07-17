@@ -12,7 +12,6 @@
 
     var teamRoster = <%= @team_roster_json.html_safe %>;
     var playerList = <%= @player_list_json.html_safe %>;
-    var emptySlotPlayer = <%= @empty_player.to_json.html_safe %>;
 
     // template for converting team roster defined as a JSON array into an html table for display on the
     // IE matchup app main page
@@ -24,14 +23,14 @@
                 <tr class=\"player_matchups_header\"><th>Pos</th><th>Player</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr> \
                 {.repeated section @}                                                                      \
                     {.empty?}\
-                      <tr id={player.id} class=\"empty {position}\">                                                         \
+                      <tr id={idx} class=\"empty {position}\">                                                         \
                         <td>{position}</td>                                                              \
                         <td class=\"player_name_cell\"><em>{player.name}</em><br>&nbsp;</td>               \
                         <td>{player.opponent}</td>                                                                \
                         <td>{player.rating}</td>                                                                  \
                         <td>{player.analysis}</td></tr>     \
                     {.or}\
-                      <tr id={player.id} class=\"player {position}\">                                                         \
+                      <tr id={idx} class=\"player {position}\">                                                         \
                         <td>{position}</td>                                                              \
                         <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>               \
                         <td>{player.opponent}</td>                                                                \
@@ -43,14 +42,14 @@
             {.section bench_batters} \
                <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
                 {.repeated section @}\
-                   <tr id={player.id} class=\"player {position}\">                                                         \
+                   <tr id={idx} class=\"player {position}\">                                                         \
                         <td>Bench({player.roster_pos})</td>                                                              \
                         <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>               \
                         <td>{player.opponent}</td>                                                                \
                         <td>{player.rating}</td>                                                                  \
                         <td>{player.analysis}</td></tr>                                                           \
                     {.end} \
-                <tr id=\"empty_batter\" style=\"display:none;\" class=\"empty\"><td>Bench</td><td><em>EMPTY</em><br>&nbsp;</td><td> </td><td></td><td></td></tr>         \
+                <tr id=\"empty_batter\" style=\"display:none;\" class=\"empty_bench_batter\"><td>Bench</td><td><em>EMPTY</em><br>&nbsp;</td><td> </td><td></td><td></td></tr>         \
             {.end}                                                                                         \
             {.section pitchers}                                                                            \
                 <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
@@ -58,14 +57,14 @@
                 <tr class=\"player_matchups_header\"><th>Pos</th><th>Player</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr> \
                 {.repeated section @}                                                                      \
                     {.empty?}\
-                      <tr id={player.id} class=\"empty {position}\">                                                         \
+                      <tr id={idx} class=\"empty {position}\">                                                         \
                         <td>{position}</td>                                                              \
                         <td class=\"player_name_cell\"><em>{player.name}</em><br>&nbsp;</td>               \
                         <td>{player.opponent}</td>                                                                \
                         <td>{player.rating}</td>                                                                  \
                         <td>{player.analysis}</td></tr>     \
                     {.or}\
-                      <tr id={player.id} class=\"player {position}\">                                                         \
+                      <tr id={idx} class=\"player {position}\">                                                         \
                         <td>{position}</td>                                                              \
                         <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>             \
                         <td>{player.opponent}</td>                                                                \
@@ -77,14 +76,14 @@
             {.section bench_pitchers} \
                <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
                 {.repeated section @}                                                                      \
-                    <tr id={player.id} class=\"player {position}\">                                                         \
+                    <tr id={idx} class=\"player {position}\">                                                         \
                         <td>Bench({player.roster_pos})</td>                                                              \
                         <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>               \
                         <td>{player.opponent}</td>                                                                \
                         <td>{player.rating}</td>                                                                  \
                         <td>{player.analysis}</td></tr>                                                           \
                 {.end}           \
-                <tr id=\"empty_pitcher\" style=\"display:none;\" class=\"empty\"><td>Bench</td><td><em>EMPTY</em><br>&nbsp;</td><td> </td><td></td><td></td></tr>         \
+                <tr id=\"empty_pitcher\" style=\"display:none;\" class=\"empty_bench_pitcher\"><td>Bench</td><td><em>EMPTY</em><br>&nbsp;</td><td> </td><td></td><td></td></tr>         \
             {.end}                                                                                         \
          </tbody> </table>" );
 
@@ -128,18 +127,8 @@
       }
   }
 
-  function enableDropOnEmptyBatterSlots( ) {
-      // and enable drop on matching position row if empty
-      $("tr.empty").each( function(index, elt) {
-          $(this).droppable({
-              drop: dropPlayer
-          } );
-          $(this).addClass("valid_roster_move_row");
-      } );
-  }
-
   function enableDropOnEmptyBenchBatter( ) {
-    var emptyBenchSlot = $("#roster_matchups tr.bench_batters");
+    var emptyBenchSlot = $("#roster_matchups tr.empty_bench_batter");
     emptyBenchSlot.removeAttr("style");
     emptyBenchSlot.droppable( { drop: dropPlayer
                               });
@@ -147,7 +136,7 @@
   }
 
     function enableDropOnEmptyBenchPitcher( ) {
-        var emptyBenchSlot = $("#roster_matchups tr.bench_pitchers");
+        var emptyBenchSlot = $("#roster_matchups tr.empty_bench_pitcher");
         emptyBenchSlot.removeAttr("style");
         emptyBenchSlot.droppable( { drop: dropPlayer
         });
@@ -218,11 +207,29 @@
   }
 
   function moveActivePlayerToEmptyPosition(theMove) {
+    fromPlayer = teamRoster[theMove.dragId];
+    fromPlayer.section = theMove.toSection;
+    fromPlayer.idx = theMove.toIdx;
+    fromPlayer.roster_pos = theMove.toPos;
+    playerList[theMove.toSection][theMove.toIdx].player = fromPlayer;
+
+    // from entry in player list is set as empty position
+    playerList[theMove.fromSection][theMove.fromIdx].empty = true;
+    playerList[theMove.fromSection][theMove.fromIdx].player = emptySlotPlayer;
 
   }
 
   function moveActivePlayerToBench(theMove) {
+      // from entry in player list is set as empty position
+      playerList[theMove.fromSection][theMove.fromIdx].empty = true;
+      playerList[theMove.fromSection][theMove.fromIdx].player = emptySlotPlayer;
 
+      idx = playerList["bench_batters"].length;
+      teamRoster[theMove.dragId].section = "bench_batters";
+      teamRoster[theMove.dragId].idx = idx;
+      playerList["bench_batters"].push( { empty: false,
+                                          position: "Bench",
+                                          player: teamRoster[theMove.dragId] });
   }
 
     function dropPlayer(event, ui) {
@@ -254,8 +261,19 @@
                 moveFromPlayerBenchToPlayer(theMove);
             }
         }
-      } else if (1) {
-        console.log("Player Type:" + playerType);
+      } else {
+          var theMove = { dropId: dropId,
+              dragId: dragId,
+              fromSection: teamRoster[dragId].section,
+              fromIdx: teamRoster[dragId].idx,
+              fromPos: teamRoster[dragId].roster_pos };
+          if ( $(this).hasClass("empty") ) {
+              console.log("Moving player to empty position");
+              moveActivePlayerToEmptyPosition(theMove);
+          } else if ( $(this).hasClass("empty_bench_batter")) {
+              console.log("Moving player to bench");
+              moveActivePlayerToBench(theMove);
+          }
       }
 
       $(c.helper).remove();
