@@ -38,7 +38,31 @@ class Team
     ids = []
     @team["body"]["rosters"]["teams"][0]["players"].each do |player|
       #puts "player: #{player["id"]} #{player["roster_pos"]}"
-      if player["roster_pos"] == position
+      if player["roster_pos"] == position && player["roster_status"] == "A"
+        #puts "r: #{position} p: #{player["roster_pos"]} id: #{player["id"]}}"
+        ids << player["id"]
+      end
+    end
+    return ids
+  end
+
+  def bench_batters( )
+    ids = []
+    @team["body"]["rosters"]["teams"][0]["players"].each do |player|
+      #puts "player: #{player["id"]} #{player["roster_pos"]}"
+      if player["roster_pos"] != "P" && player["roster_status"] != "A"
+        #puts "r: #{position} p: #{player["roster_pos"]} id: #{player["id"]}}"
+        ids << player["id"]
+      end
+    end
+    return ids
+  end
+
+  def bench_pitchers( )
+    ids = []
+    @team["body"]["rosters"]["teams"][0]["players"].each do |player|
+      #puts "player: #{player["id"]} #{player["roster_pos"]}"
+      if player["roster_pos"] == "P" && player["roster_status"] != "A"
         #puts "r: #{position} p: #{player["roster_pos"]} id: #{player["id"]}}"
         ids << player["id"]
       end

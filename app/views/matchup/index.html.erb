@@ -22,71 +22,100 @@
                 <tr class=\"player_type_title\"><td colspan='5'>Batters</td></tr>                            \
                 <tr class=\"player_matchups_header\"><th>Pos</th><th>Player</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr> \
                 {.repeated section @}                                                                      \
-                    <tr id={id} class=\"player\">                                                         \
-                        <td>{roster_pos}</td>                                                              \
-                        <td class=\"player_name_cell\"><a href=\"{profile_url}\">{name}</a><br>({mlb_pos}){mlb_team}</td>               \
-                        <td>{opponent}</td>                                                                \
-                        <td>{rating}</td>                                                                  \
-                        <td>{analysis}</td></tr>                                                           \
+                    {.empty?}\
+                      <tr id={idx} class=\"empty {position}\">                                                         \
+                        <td>{position}</td>                                                              \
+                        <td class=\"player_name_cell\"><em>{player.name}</em><br>&nbsp;</td>               \
+                        <td>{player.opponent}</td>                                                                \
+                        <td>{player.rating}</td>                                                                  \
+                        <td>{player.analysis}</td></tr>     \
+                    {.or}\
+                      <tr id={idx} class=\"player {position}\">                                                         \
+                        <td>{position}</td>                                                              \
+                        <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>               \
+                        <td>{player.opponent}</td>                                                                \
+                        <td>{player.rating}</td>                                                                  \
+                        <td>{player.analysis}</td></tr>                                                           \
+                    {.end} \
                 {.end}                                                                                     \
             {.end}                                                                                         \
             {.section bench_batters} \
                <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
-                {.repeated section @}                                                                      \
-                    <tr id={id} class=\"player\">                                                         \
-                        <td>Bench({roster_pos})</td>                                                              \
-                        <td class=\"player_name_cell\"><a href=\"{profile_url}\">{name}</a><br>({mlb_pos}){mlb_team}</td>               \
-                        <td>{opponent}</td>                                                                \
-                        <td>{rating}</td>                                                                  \
-                        <td>{analysis}</td></tr>                                                           \
-                {.end}                                                                                     \
-                <tr style=\"display:none;\" class=\"empty_bench_batter\"><td>Bench</td><td>Empty</td><td> </td><td></td><td></td></tr>         \
+                {.repeated section @}\
+                   <tr id={idx} class=\"player {position}\">                                                         \
+                        <td>Bench({player.roster_pos})</td>                                                              \
+                        <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>               \
+                        <td>{player.opponent}</td>                                                                \
+                        <td>{player.rating}</td>                                                                  \
+                        <td>{player.analysis}</td></tr>                                                           \
+                    {.end} \
+                <tr id=\"empty_batter\" style=\"display:none;\" class=\"empty_bench_batter\"><td>Bench</td><td><em>EMPTY</em><br>&nbsp;</td><td> </td><td></td><td></td></tr>         \
             {.end}                                                                                         \
             {.section pitchers}                                                                            \
                 <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
                 <tr class=\"player_type_title\"><td colspan='5'>Pitchers</td></tr>                         \
                 <tr class=\"player_matchups_header\"><th>Pos</th><th>Player</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr> \
                 {.repeated section @}                                                                      \
-                    <tr id={id} class=\"player\">                                                         \
-                        <td>{roster_pos}</td>                                                              \
-                        <td class=\"player_name_cell\"><a href=\"{profile_url}\">{name}</a><br>({mlb_pos}){mlb_team}</td>             \
-                        <td>{opponent}</td>                                                                \
-                        <td>{rating}</td>                                                                  \
-                        <td>{analysis}</td></tr>                                                           \
+                    {.empty?}\
+                      <tr id={idx} class=\"empty {position}\">                                                         \
+                        <td>{position}</td>                                                              \
+                        <td class=\"player_name_cell\"><em>{player.name}</em><br>&nbsp;</td>               \
+                        <td>{player.opponent}</td>                                                                \
+                        <td>{player.rating}</td>                                                                  \
+                        <td>{player.analysis}</td></tr>     \
+                    {.or}\
+                      <tr id={idx} class=\"player {position}\">                                                         \
+                        <td>{position}</td>                                                              \
+                        <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>             \
+                        <td>{player.opponent}</td>                                                                \
+                        <td>{player.rating}</td>                                                                  \
+                        <td>{player.analysis}</td></tr>                                                           \
+                    {.end}\
                 {.end}                                                                                     \
             {.end}                                                                                         \
             {.section bench_pitchers} \
                <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
                 {.repeated section @}                                                                      \
-                    <tr id={id} class=\"player\">                                                         \
-                        <td>Bench({roster_pos})</td>                                                              \
-                        <td class=\"player_name_cell\"><a href=\"{profile_url}\">{name}</a><br>({mlb_pos}){mlb_team}</td>               \
-                        <td>{opponent}</td>                                                                \
-                        <td>{rating}</td>                                                                  \
-                        <td>{analysis}</td></tr>                                                           \
+                    <tr id={idx} class=\"player {position}\">                                                         \
+                        <td>Bench({player.roster_pos})</td>                                                              \
+                        <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>               \
+                        <td>{player.opponent}</td>                                                                \
+                        <td>{player.rating}</td>                                                                  \
+                        <td>{player.analysis}</td></tr>                                                           \
                 {.end}           \
-                <tr style=\"display:none;\" class=\"empty_bench_pitcher\"><td>Bench</td><td>Empty<br>&nbsp;</td><td> </td><td></td><td></td></tr>         \
+                <tr id=\"empty_pitcher\" style=\"display:none;\" class=\"empty_bench_pitcher\"><td>Bench</td><td><em>EMPTY</em><br>&nbsp;</td><td> </td><td></td><td></td></tr>         \
             {.end}                                                                                         \
          </tbody> </table>" );
 
-    function createRosterMatchupTable()
-  {
-      var mut = plt.expand(playerList);
-      document.getElementById("roster").innerHTML = mut;
-      $("tr.player").draggable( {
-          helper: "clone",
-          start:  startDrag,
-          stop: stopDrag
-      });
+  function createRosterMatchupTable() {
+    var mut = plt.expand(playerList);
+    document.getElementById("roster").innerHTML = mut;
+    $("tr.player").draggable( {
+        helper: "clone",
+        start:  startDrag,
+        stop: stopDrag
+    });
+  }
+
+  function enableDropOnEligiblePositions(positions) {
+      for ( var i = 0; i < positions.length; i++) {
+        console.log(" Enable Drop On Position: " + positions[i]);
+        $("#roster_matchups tr." + positions[i]).each( function(index, elt) {
+              $(this).droppable({
+                  drop: dropPlayer
+              } );
+              $(this).addClass("valid_roster_move_row");
+          } );
+      }
   }
 
   function enableDropOnEligiblePlayers( players, id, pos, tr_offset) {
       for (var i = 0; i < players.length; i++ ) {
           //console.log("Player: " + players[i].name + " eligible: " + players[i].eligible.toString());
-          if ( players[i].eligible.indexOf(pos) != -1 ) {
-              console.log("Row: " + i + " Player: " + players[i].name + " is eligible.");
+          if ( players[i].player.eligible.indexOf(pos) != -1 ) {
+              console.log("Row: " + i + " Player: " + players[i].player.name + " is eligible.");
               trow = i + tr_offset;
-              if(players[i].id == id) {
+              if(players[i].player.id == id) {
                   $("#roster_matchups tr").eq(trow).addClass("selected_roster_row");
               } else {
                   $("#roster_matchups tr").eq(trow).droppable({
@@ -106,7 +135,15 @@
     emptyBenchSlot.addClass("valid_roster_move_row");
   }
 
-  function startDrag(event, ui) {
+    function enableDropOnEmptyBenchPitcher( ) {
+        var emptyBenchSlot = $("#roster_matchups tr.empty_bench_pitcher");
+        emptyBenchSlot.removeAttr("style");
+        emptyBenchSlot.droppable( { drop: dropPlayer
+        });
+        emptyBenchSlot.addClass("valid_roster_move_row");
+    }
+
+    function startDrag(event, ui) {
       c.tr = this;
       c.helper = ui.helper;
       dragId = $(this).attr('id');
@@ -115,10 +152,13 @@
       var idx = teamRoster[dragId].idx;
       var movePos = teamRoster[dragId].roster_pos;
       console.log("id: " + dragId + " section: " + section + "idx: " + idx + " Position: " + movePos);
-      if ( movePos != "P") {
-          enableDropOnEligiblePlayers(playerList.batters, dragId, movePos, 2);
-          enableDropOnEligiblePlayers(playerList.bench_batters, dragId, movePos, playerList.batters.length + 3);
-          enableDropOnEmptyBenchBatter();
+      if (section == "batters") {
+        enableDropOnEligiblePositions(teamRoster[dragId].eligible);
+        enableDropOnEligiblePlayers(playerList.bench_batters, dragId, movePos, playerList.batters.length + 3);
+        enableDropOnEmptyBenchBatter();
+      } else if (section == "bench_batters") {
+         // enable drop on all positions this player is eligible for
+         enableDropOnEligiblePositions(teamRoster[dragId].eligible);
       } else {
           //enableDropOnEligiblePlayers(playerList.pitchers, dragId, movePos,
           //        playerList.batters.length + playerList.bench_batters.length + 6);
@@ -136,26 +176,105 @@
       createRosterMatchupTable();
   }
 
-  function dropPlayer(event, ui) {
-      var dropId= $(this).attr('id')
-      var dropSection = teamRoster[dropId].section;
-      var dropIdx = teamRoster[dropId].idx;
-      var dropPos = teamRoster[dropId].roster_pos;
-      var section = teamRoster[dragId].section;
-      var idx = teamRoster[dragId].idx;
-      var movePos = teamRoster[dragId].roster_pos;
-      console.log("DRAG: id: " + dragId + " section: " + section + " idx: " + idx + "  Position: " + movePos);
-      console.log("DROP: id: " + dropId + " section: " + dropSection + " idx: " + dropIdx + "  Position: " + dropPos);
+  function swapMovedPlayers( theMove ) {
+      teamRoster[theMove.dropId].section = theMove.fromSection;
+      teamRoster[theMove.dropId].idx = theMove.fromIdx;
+      teamRoster[theMove.dropId].roster_pos = theMove.fromPos;
+      playerList[theMove.fromSection][theMove.fromIdx].player = teamRoster[theMove.dropId];
 
-      teamRoster[dropId].section = section;
-      teamRoster[dropId].idx = idx;
-      teamRoster[dropId].roster_pos = movePos;
-      playerList[section][idx] = teamRoster[dropId];
+      teamRoster[theMove.dragId].section = theMove.toSection;
+      teamRoster[theMove.dragId].idx = theMove.toIdx;
+      teamRoster[theMove.dragId].roster_pos = theMove.toPos;
+      playerList[theMove.toSection][theMove.toIdx].player = teamRoster[theMove.dragId];
+  }
 
-      teamRoster[dragId].section = dropSection;
-      teamRoster[dragId].idx = dropIdx;
-      teamRoster[dragId].roster_pos = dropPos;
-      playerList[dropSection][dropIdx] = teamRoster[dragId];
+  function moveFromPlayerBenchToPlayer(theMove) {
+      teamRoster[theMove.dragId].section = theMove.toSection;
+      teamRoster[theMove.dragId].idx = theMove.toIdx;
+      teamRoster[theMove.dragId].roster_pos = theMove.toPos;
+      playerList[theMove.toSection][theMove.toIdx].player = teamRoster[theMove.dragId];
+
+      // from entry in player list is set as empty position
+      playerList[theMove.fromSection][theMove.fromIdx].empty = true;
+      playerList[theMove.fromSection][theMove.fromIdx].player = emptySlotPlayer;
+
+      idx = playerList["bench_batters"].length;
+      teamRoster[theMove.dropId].section = "bench_batters";
+      teamRoster[theMove.dropId].idx = idx;
+      playerList["bench_batters"].push( { empty: false,
+                                           position: "Bench",
+                                           player: teamRoster[theMove.dropId] });
+  }
+
+  function moveActivePlayerToEmptyPosition(theMove) {
+    fromPlayer = teamRoster[theMove.dragId];
+    fromPlayer.section = theMove.toSection;
+    fromPlayer.idx = theMove.toIdx;
+    fromPlayer.roster_pos = theMove.toPos;
+    playerList[theMove.toSection][theMove.toIdx].player = fromPlayer;
+
+    // from entry in player list is set as empty position
+    playerList[theMove.fromSection][theMove.fromIdx].empty = true;
+    playerList[theMove.fromSection][theMove.fromIdx].player = emptySlotPlayer;
+
+  }
+
+  function moveActivePlayerToBench(theMove) {
+      // from entry in player list is set as empty position
+      playerList[theMove.fromSection][theMove.fromIdx].empty = true;
+      playerList[theMove.fromSection][theMove.fromIdx].player = emptySlotPlayer;
+
+      idx = playerList["bench_batters"].length;
+      teamRoster[theMove.dragId].section = "bench_batters";
+      teamRoster[theMove.dragId].idx = idx;
+      playerList["bench_batters"].push( { empty: false,
+                                          position: "Bench",
+                                          player: teamRoster[theMove.dragId] });
+  }
+
+    function dropPlayer(event, ui) {
+      var dropId= $(this).attr('id');
+      if ( $(this).hasClass("player") ) {
+        var theMove = { dropId: dropId,
+                        dragId: dragId,
+                        toSection: teamRoster[dropId].section,
+                        toIdx: teamRoster[dropId].idx,
+                        toPos: teamRoster[dropId].roster_pos,
+                        fromSection: teamRoster[dragId].section,
+                        fromIdx: teamRoster[dragId].idx,
+                        fromPos: teamRoster[dragId].roster_pos };
+
+          console.log("DRAG: id: " + dragId + " section: " + theMove.fromSection + " idx: " + theMove.fromIdx + "  Position: " + theMove.fromPos);
+          console.log("DRAG: id: " + dropId + " section: " + theMove.toSection + " idx: " + theMove.toIdx + "  Position: " + theMove.toPos);
+
+        // if moving player to/from bench the drop section must be valid so just
+        // swap the players
+        if ( /bench/.test(theMove.toSection) || /bench/.test(theMove.fromSection)) {
+            swapMovedPlayers(theMove);
+        } else if (/batters/.test(theMove.toSection)) {
+          // moving active batter to new position, if player at that position is eligible at moved
+          // players postion then swap, otherwise move player dropped on to the bench
+            if ( teamRoster[dropId].eligible.indexOf(theMove.fromPos) != -1 ) {
+                console.log("Player: " + teamRoster[dropId].name + " is eligible at " + theMove.fromPos);
+                swapMovedPlayers(theMove);
+            } else {
+                moveFromPlayerBenchToPlayer(theMove);
+            }
+        }
+      } else {
+          var theMove = { dropId: dropId,
+              dragId: dragId,
+              fromSection: teamRoster[dragId].section,
+              fromIdx: teamRoster[dragId].idx,
+              fromPos: teamRoster[dragId].roster_pos };
+          if ( $(this).hasClass("empty") ) {
+              console.log("Moving player to empty position");
+              moveActivePlayerToEmptyPosition(theMove);
+          } else if ( $(this).hasClass("empty_bench_batter")) {
+              console.log("Moving player to bench");
+              moveActivePlayerToBench(theMove);
+          }
+      }
 
       $(c.helper).remove();
       $("#roster_matchups").remove();
