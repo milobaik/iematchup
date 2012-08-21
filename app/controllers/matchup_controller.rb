@@ -7,6 +7,8 @@ class MatchupController < ApplicationController
    cidx = roster_map[:index].length
    player_cb = { :empty => player.nil?,
                  :idx => cidx,
+                 :section => player_type,
+                 :sidx => roster_map[player_type].length,
                  :position => pos,
                  :player => player }
    roster_map[player_type] << player_cb
