@@ -8,7 +8,14 @@
 -->
 <script type="text/javascript">
     var c = {};
-    var dragId;
+    var from_pcb, to_pcb;
+    var empty_player = {
+        name: "Empty",
+        idx: -1,
+        opponent: "",
+        rating: "",
+        analysis: ""
+    };
 
     var teamRoster = <%= @team_roster_json.html_safe %>;
     var playerList = <%= @player_list_json.html_safe %>;
@@ -146,23 +153,20 @@
     function startDrag(event, ui) {
       c.tr = this;
       c.helper = ui.helper;
-      dragId = $(this).attr('id');
+      from_pcb = playerList.index[$(this).attr('id')];
 
-      var section = teamRoster[dragId].section;
-      var idx = teamRoster[dragId].idx;
-      var movePos = teamRoster[dragId].roster_pos;
-      console.log("id: " + dragId + " section: " + section + "idx: " + idx + " Position: " + movePos);
-      if (section == "batters") {
-        enableDropOnEligiblePositions(teamRoster[dragId].eligible);
-        enableDropOnEligiblePlayers(playerList.bench_batters, dragId, movePos, playerList.batters.length + 3);
+      console.log("From id: " + from_pcb.player.id + " section: " + from_pcb.section + "idx: " + from_pcb.idx + " Position: " + from_pcb.position);
+      if (from_pcb.section == "batters") {
+        enableDropOnEligiblePositions(from_pcb.player.eligible);
+        enableDropOnEligiblePlayers(playerList.bench_batters, from_pcb.player.id, from_pcb.position, playerList.batters.length + 3);
         enableDropOnEmptyBenchBatter();
-      } else if (section == "bench_batters") {
+      } else if (from_pcb.section == "bench_batters") {
          // enable drop on all positions this player is eligible for
-         enableDropOnEligiblePositions(teamRoster[dragId].eligible);
+         enableDropOnEligiblePositions(from_pcb.player.eligible);
       } else {
           //enableDropOnEligiblePlayers(playerList.pitchers, dragId, movePos,
           //        playerList.batters.length + playerList.bench_batters.length + 6);
-          enableDropOnEligiblePlayers(playerList.bench_pitchers, dragId, movePos,
+          enableDropOnEligiblePlayers(playerList.bench_pitchers, from_pcb.player.id, from_pcb.position,
                   playerList.batters.length + playerList.bench_batters.length +
                           playerList.pitchers.length + 7);
           enableDropOnEmptyBenchPitcher();
@@ -176,47 +180,60 @@
       createRosterMatchupTable();
   }
 
-  function swapMovedPlayers( theMove ) {
-      teamRoster[theMove.dropId].section = theMove.fromSection;
-      teamRoster[theMove.dropId].idx = theMove.fromIdx;
-      teamRoster[theMove.dropId].roster_pos = theMove.fromPos;
-      playerList[theMove.fromSection][theMove.fromIdx].player = teamRoster[theMove.dropId];
+  function swapMovedPlayers( from_pcb, to_pcb ) {
+      var to_player = to_pcb.player;
 
-      teamRoster[theMove.dragId].section = theMove.toSection;
-      teamRoster[theMove.dragId].idx = theMove.toIdx;
-      teamRoster[theMove.dragId].roster_pos = theMove.toPos;
-      playerList[theMove.toSection][theMove.toIdx].player = teamRoster[theMove.dragId];
+      to_pcb.player = from_pcb.player;
+      playerList[to_pcb.section][to_pcb.sidx].player = from_pcb.player;
+      to_pcb.player.roster_pos = to_pcb.position;
+
+      from_pcb.player = to_player;
+      playerList[from_pcb.section][from_pcb.sidx].player = to_player;
+      from_pcb.player.roster_pos = from_pcb.position;
   }
 
-  function moveFromPlayerBenchToPlayer(theMove) {
-      teamRoster[theMove.dragId].section = theMove.toSection;
-      teamRoster[theMove.dragId].idx = theMove.toIdx;
-      teamRoster[theMove.dragId].roster_pos = theMove.toPos;
-      playerList[theMove.toSection][theMove.toIdx].player = teamRoster[theMove.dragId];
+  function moveFromPlayerBenchToPlayer( from_pcb, to_pcb ) {
+      var to_player = to_pcb.player;
 
-      // from entry in player list is set as empty position
-      playerList[theMove.fromSection][theMove.fromIdx].empty = true;
-      playerList[theMove.fromSection][theMove.fromIdx].player = emptySlotPlayer;
+      to_pcb.player = from_pcb.player;
+      playerList[to_pcb.section][to_pcb.sidx].player = from_pcb.player;
+      to_pcb.player.roster_pos = to_pcb.position;
 
-      idx = playerList["bench_batters"].length;
-      teamRoster[theMove.dropId].section = "bench_batters";
-      teamRoster[theMove.dropId].idx = idx;
+      from_pcb.player = empty_player;
+      from_pcb.empty = true;
+      playerList[from_pcb.section][from_pcb.sidx].player = empty_player;
+      playerList[from_pcb.section][from_pcb.sidx].empty = true;
+      cidx = playerList["index"].length;
+      to_player.roster_pos = "Bench";
+      playerList["index"].push( { empty: false,
+                                          idx: cidx,
+                                          section: "bench_batters",
+                                          sidx: playerList["bench_batters"].length,
+                                          position: "Bench",
+                                          player: to_player } );
       playerList["bench_batters"].push( { empty: false,
-                                           position: "Bench",
-                                           player: teamRoster[theMove.dropId] });
+          idx: cidx,
+          section: "bench_batters",
+          sidx: playerList["bench_batters"].length,
+          position: "Bench",
+          player: to_player } );
+
   }
 
-  function moveActivePlayerToEmptyPosition(theMove) {
-    fromPlayer = teamRoster[theMove.dragId];
-    fromPlayer.section = theMove.toSection;
-    fromPlayer.idx = theMove.toIdx;
-    fromPlayer.roster_pos = theMove.toPos;
-    playerList[theMove.toSection][theMove.toIdx].player = fromPlayer;
+  function moveActivePlayerToEmptyPosition( from_pcb, to_pcb ) {
+      var to_player = to_pcb.player;
 
-    // from entry in player list is set as empty position
-    playerList[theMove.fromSection][theMove.fromIdx].empty = true;
-    playerList[theMove.fromSection][theMove.fromIdx].player = emptySlotPlayer;
+      to_pcb.player = from_pcb.player;
+      to_pcb.empty = false;
+      playerList[to_pcb.section][to_pcb.sidx].player = from_pcb.player;
+      playerList[to_pcb.section][to_pcb.sidx].empty = false;
+      to_pcb.player.roster_pos = to_pcb.position;
 
+      from_pcb.player = to_player;
+      from_pcb.empty = true;
+      playerList[from_pcb.section][from_pcb.sidx].player = to_player;
+      playerList[from_pcb.section][from_pcb.sidx].empty = true;
+      from_pcb.player.roster_pos = from_pcb.position;
   }
 
   function moveActivePlayerToBench(theMove) {
@@ -233,46 +250,33 @@
   }
 
     function dropPlayer(event, ui) {
-      var dropId= $(this).attr('id');
-      if ( $(this).hasClass("player") ) {
-        var theMove = { dropId: dropId,
-                        dragId: dragId,
-                        toSection: teamRoster[dropId].section,
-                        toIdx: teamRoster[dropId].idx,
-                        toPos: teamRoster[dropId].roster_pos,
-                        fromSection: teamRoster[dragId].section,
-                        fromIdx: teamRoster[dragId].idx,
-                        fromPos: teamRoster[dragId].roster_pos };
+      to_pcb = playerList.index[$(this).attr('id')];
+      if ( ! to_pcb.empty ) {
 
-          console.log("DRAG: id: " + dragId + " section: " + theMove.fromSection + " idx: " + theMove.fromIdx + "  Position: " + theMove.fromPos);
-          console.log("DRAG: id: " + dropId + " section: " + theMove.toSection + " idx: " + theMove.toIdx + "  Position: " + theMove.toPos);
+          console.log("From id: " + from_pcb.player.id + " section: " + from_pcb.section + " idx: " + from_pcb.sidx + "  Position: " + from_pcb.position);
+          console.log("To id: " + to_pcb.player.id + " section: " + to_pcb.section + " idx: " + to_pcb.sidx + "  Position: " + to_pcb.position);
 
         // if moving player to/from bench the drop section must be valid so just
         // swap the players
-        if ( /bench/.test(theMove.toSection) || /bench/.test(theMove.fromSection)) {
-            swapMovedPlayers(theMove);
-        } else if (/batters/.test(theMove.toSection)) {
+        if ( /bench/.test(to_pcb.section) || /bench/.test(from_pcb.section)) {
+            swapMovedPlayers(from_pcb, to_pcb);
+        } else if (/batters/.test(to_pcb.section)) {
           // moving active batter to new position, if player at that position is eligible at moved
           // players postion then swap, otherwise move player dropped on to the bench
-            if ( teamRoster[dropId].eligible.indexOf(theMove.fromPos) != -1 ) {
-                console.log("Player: " + teamRoster[dropId].name + " is eligible at " + theMove.fromPos);
-                swapMovedPlayers(theMove);
+            if ( to_pcb.player.eligible.indexOf(from_pcb.position) != -1 ) {
+                console.log("Player: " + to_pcb.player.name + " is eligible at " + from_pcb.position);
+                swapMovedPlayers(from_pcb, to_pcb);
             } else {
-                moveFromPlayerBenchToPlayer(theMove);
+                moveFromPlayerBenchToPlayer(from_pcb, to_pcb);
             }
         }
       } else {
-          var theMove = { dropId: dropId,
-              dragId: dragId,
-              fromSection: teamRoster[dragId].section,
-              fromIdx: teamRoster[dragId].idx,
-              fromPos: teamRoster[dragId].roster_pos };
           if ( $(this).hasClass("empty") ) {
               console.log("Moving player to empty position");
-              moveActivePlayerToEmptyPosition(theMove);
+              moveActivePlayerToEmptyPosition(from_pcb, to_pcb);
           } else if ( $(this).hasClass("empty_bench_batter")) {
               console.log("Moving player to bench");
-              moveActivePlayerToBench(theMove);
+              moveActivePlayerToBench(from_pcb, to_pcb);
           }
       }
 
