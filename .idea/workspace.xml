@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb65e840-0c63-45e7-8c82-b8ee76adb13c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/matchup_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/matchup/index.html.erb" afterPath="$PROJECT_DIR$/app/views/matchup/index.html.erb" />
     </list>
     <ignored path="iematchup.iws" />
@@ -47,7 +45,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="278" column="54" selection-start="15958" selection-end="15958" vertical-scroll-proportion="1.3528455">
+            <state line="110" column="0" selection-start="8573" selection-end="8573" vertical-scroll-proportion="0.32357723">
               <folding />
             </state>
           </provider>
@@ -904,7 +902,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/matchup/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="278" column="54" selection-start="15958" selection-end="15958" vertical-scroll-proportion="1.3528455">
+        <state line="110" column="0" selection-start="8573" selection-end="8573" vertical-scroll-proportion="0.32357723">
           <folding />
         </state>
       </provider>
