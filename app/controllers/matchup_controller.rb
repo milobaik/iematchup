@@ -6,6 +6,7 @@ class MatchupController < ApplicationController
  def add_player_to_roster_map( pos, player_type, player, roster_map )
    cidx = roster_map[:index].length
    player_cb = { :empty => player.nil?,
+                 :modified => "",
                  :idx => cidx,
                  :section => player_type,
                  :sidx => roster_map[player_type].length,
