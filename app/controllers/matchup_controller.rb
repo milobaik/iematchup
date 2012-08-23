@@ -50,7 +50,7 @@ def index
                                   :mlb_team => player["pro_team"],
                                   :eligible => player["eligible"].split(","),
                                   :opponent => mup[:opponent],
-                                  :rating => mup[:rating],
+                                  :rating => "*" * mup[:rating],
                                   :analysis => mup[:analysis] }
   end
 

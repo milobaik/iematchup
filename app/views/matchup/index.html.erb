@@ -243,7 +243,13 @@
           to_pcb.player.roster_pos = to_pcb.position;
 
           // delete entry from bench batters array
+          console.log("Delete Entry. section: " + from_pcb.section + " sidx: " + from_pcb.sidx + " Name: " + from_pcb.player.name)
           playerList[from_pcb.section].splice(from_pcb.sidx, 1);
+          for ( var i = from_pcb.sidx; i < playerList[from_pcb.section].length; i++ ) {
+              console.log("player: " + playerList[from_pcb.section][i].player.name + " old sidx: " + playerList[from_pcb.section][i].sidx + " new sidx: " + i);
+              playerList[from_pcb.section][i].sidx = i;
+              playerList["index"][playerList[from_pcb.section][i].idx].sidx = i;
+          }
       } else {
         var to_player = to_pcb.player;
 
