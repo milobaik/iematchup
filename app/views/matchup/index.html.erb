@@ -37,11 +37,11 @@
                         <td>{player.rating}</td>                                                                  \
                         <td>{player.analysis}</td></tr>     \
                     {.or}\
-                      <tr id={idx} class=\"player {position} {modified}\">                                                         \
+                      <tr id={idx} class=\"player {position} {modified}\" style=\"cursor:move\">                                                         \
                         <td>{position}</td>                                                              \
                         <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>               \
                         <td>{player.opponent}</td>                                                                \
-                        <td>{player.rating}</td>                                                                  \
+                        <td class=\"player_rating\">{player.rating}</td>                                                                  \
                         <td>{player.analysis}</td></tr>                                                           \
                     {.end} \
                 {.end}                                                                                     \
@@ -49,11 +49,11 @@
             {.section bench_batters} \
                <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
                 {.repeated section @}\
-                   <tr id={idx} class=\"player {position} {modified}\">                                                         \
+                   <tr id={idx} class=\"player {position} {modified}\" style=\"cursor:move\">                                                         \
                         <td>Bench({player.roster_pos})</td>                                                              \
                         <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>               \
                         <td>{player.opponent}</td>                                                                \
-                        <td>{player.rating}</td>                                                                  \
+                        <td class=\"player_rating\">{player.rating}</td>                                                                  \
                         <td>{player.analysis}</td></tr>                                                           \
                     {.end} \
                 <tr id=\"empty_batter\" style=\"display:none;\" class=\"empty_bench_batter\"><td>Bench</td><td><em>EMPTY</em><br>&nbsp;</td><td> </td><td></td><td></td></tr>         \
@@ -71,11 +71,11 @@
                         <td>{player.rating}</td>                                                                  \
                         <td>{player.analysis}</td></tr>     \
                     {.or}\
-                      <tr id={idx} class=\"player {position} {modified}\">                                                         \
+                      <tr id={idx} class=\"player {position} {modified}\" style=\"cursor:move\">                                                         \
                         <td>{position}</td>                                                              \
                         <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>             \
                         <td>{player.opponent}</td>                                                                \
-                        <td>{player.rating}</td>                                                                  \
+                        <td class=\"player_rating\">{player.rating}</td>                                                                  \
                         <td>{player.analysis}</td></tr>                                                           \
                     {.end}\
                 {.end}                                                                                     \
@@ -83,11 +83,11 @@
             {.section bench_pitchers} \
                <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
                 {.repeated section @}                                                                      \
-                    <tr id={idx} class=\"player {position} {modified}\">                                                         \
+                    <tr id={idx} class=\"player {position} {modified}\" style=\"cursor:move\">                                                         \
                         <td>Bench({player.roster_pos})</td>                                                              \
                         <td class=\"player_name_cell\"><a href=\"{player.profile_url}\">{player.name}</a><br>({player.mlb_pos}){player.mlb_team}</td>               \
                         <td>{player.opponent}</td>                                                                \
-                        <td>{player.rating}</td>                                                                  \
+                        <td class=\"player_rating\">{player.rating}</td>                                                                  \
                         <td>{player.analysis}</td></tr>                                                           \
                 {.end}           \
                 <tr id=\"empty_pitcher\" style=\"display:none;\" class=\"empty_bench_pitcher\"><td>Bench</td><td><em>EMPTY</em><br>&nbsp;</td><td> </td><td></td><td></td></tr>         \
