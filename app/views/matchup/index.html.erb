@@ -350,7 +350,7 @@
   <hr/>
 </header>
 
-<div class="teams" style="display:none;">
+<div class="teams">
   <table class="league_team_links">  <tr>
     <% @teams.each do |team| %>
         <td><a href="<%= "/matchup/#{team["id"]}?access_token=#{@access_token}?response_format=json" %>"><%= team["name"] %></a></td>
