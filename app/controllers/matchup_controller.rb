@@ -20,6 +20,7 @@ def index
   @access_token = params[:access_token]
   @user_id = params[:user_id]
   @league_id = params[:league_id]
+  @todays_date = DateTime.now().strftime(format='%m-%d-%Y')
 
   league = Team.new( :access_token => @access_token, :response_format => 'json' )
 

@@ -5,14 +5,19 @@ class Matchups
 
     def initialize
         @mups = Hash.new()
-        iemup_file = 'app/models/IEMatFOR2012-08-20UPDATED2012-08-19.csv'
+        todays_date = DateTime.now().strftime(format='%F')
+        iemup_glob = 'app/models/IEMatFOR' + todays_date + '*.csv'
+        todays_file = Dir.glob(iemup_glob)
+        puts "Today: #{todays_date} file glob: #{iemup_glob} files: #{todays_file}"
 
-          CSV.foreach(iemup_file, :headers => :first_row) { |row|
+        todays_file.each { |filename|
+          CSV.foreach(filename, :headers => :first_row) { |row|
             player_name = "#{row[4]} #{row[5]}"
             opp_name = "#{row[7]} #{row[8]}"
             matchup = {:player => player_name, :opponent => opp_name, :rating => row[10].to_i, :analysis => row[11]}
             @mups[player_name] = matchup
           }
+        }
     end
 
     def get_matchups
