@@ -113,7 +113,7 @@ a.signup_button {
     border-radius: 10px;
 }
 
-.selected_roster_row { background: #e0ffff;}
-.valid_roster_move_row { background: #adff2f;}
+.selected_roster_row { background: #b0c4de;}
+.valid_roster_move_row { background: #b0c4de;}
 .modified_roster_row { background: #ffe8b6;}
 .player_rating { font-size: 150%;}

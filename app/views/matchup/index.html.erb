@@ -19,6 +19,8 @@
 
     var teamRoster = <%= @team_roster_json.html_safe %>;
     var playerList = <%= @player_list_json.html_safe %>;
+    var rosterMods = <%= @roster_mods.to_json.html_safe %>;
+    var accessToken = "<%= @access_token %>";
 
     // template for converting team roster defined as a JSON array into an html table for display on the
     // IE matchup app main page
@@ -26,7 +28,8 @@
          <table id=\"roster_matchups\" class=\"player_matchups\" cellpadding=\"2\" cellspacing=\"0\">    \
          <tbody>                                                                                 \
             {.section batters} \
-                <tr class=\"player_type_title\"><td colspan='5'>Batters</td></tr>                            \
+                <tr class=\"player_type_title\"><td colspan='4'>Batters</td>\
+                <td align=\"right\"><button onclick=\"setLineup()\">Set Lineup</button></td></tr>                            \
                 <tr class=\"player_matchups_header\"><th>Pos</th><th>Player</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr> \
                 {.repeated section @}                                                                      \
                     {.empty?}\
@@ -60,7 +63,8 @@
             {.end}                                                                                         \
             {.section pitchers}                                                                            \
                 <tr class=\"matchup_table_spacer_row\"><td colspan='5'></td></tr>                          \
-                <tr class=\"player_type_title\"><td colspan='5'>Pitchers</td></tr>                         \
+                <tr class=\"player_type_title\"><td colspan='4'>Pitchers</td>\
+                <td align=\"right\"><button onclick=\"setLineup()\">Set Lineup</button></td></tr>           \
                 <tr class=\"player_matchups_header\"><th>Pos</th><th>Player</th><th>Opponent</th><th>Rating</th><th>Analysis</th></tr> \
                 {.repeated section @}                                                                      \
                     {.empty?}\
@@ -102,6 +106,28 @@
         start:  startDrag,
         stop: stopDrag
     });
+  }
+
+  function setLineup() {
+      $("#roster_matchups tr.modified_roster_row").each( function(index, elt) {
+        var pcb = playerList.index[$(this).attr('id')];
+        var movedPlayer = {};
+        movedPlayer[pcb.player.id] = { pos: pcb.player.roster_pos };
+        if ( /bench/.test(pcb.section)) {
+          // add player to reserve section
+          rosterMods.reserve.push(movedPlayer);
+        } else {
+          // add player to active section
+          rosterMods.active.push(movedPlayer);
+        }
+      } );
+
+      var sl_url = "/matchup/set_lineup?access_token=" + accessToken + "?response_format=json";
+      $.ajax( {url: sl_url,      // '/matchup/set_lineup',
+              type: 'POST',
+              contentType: 'application/json',
+              data: JSON.stringify({ roster_mods: rosterMods }),
+              dataType: 'json' } );
   }
 
   function enableDropOnEligiblePositions(positions, rowId ) {

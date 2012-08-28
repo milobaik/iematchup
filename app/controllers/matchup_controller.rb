@@ -27,6 +27,7 @@ def index
   @teams = league.teams
   @roster = league.roster
   @players = league.players
+  @roster_mods = { :team => "7", :active => [ ], :reserve => [ ], :point => DateTime.now().strftime(format='%Y%m%d') }
 
   mups = Matchups.new()
   @matchups = mups.get_matchups
@@ -138,6 +139,18 @@ def index
 
   @team_roster_json = @team_roster.to_json
   @player_list_json = @roster_display_map.to_json
+ end
+
+ def set_lineup
+   @access_token = params[:access_token]
+   @user_id = params[:user_id]
+   @league_id = params[:league_id]
+
+   roster_moves = params[:roster_mods]
+
+   puts "Roster Moves: #{roster_moves}"
+
+   redirect_to :action => 'index', :status => 302, :access_token => @access_token, :user_id => @user_id, :league_id => @league_id
  end
 
  def team_matchup
