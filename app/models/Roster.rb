@@ -14,6 +14,10 @@ class Team
     get(resource, :query => query_params)
   end
 
+  def self.put_resource(resource, body, query_params)
+    put(resource, :body => body, :query => query_params)
+  end
+
   def teams
     @teams = Team.get_resource('/teams', @query_params)
     return @teams["body"]["teams"]
@@ -69,5 +73,11 @@ class Team
     end
     return ids
   end
+
+  def set_lineup( roster_moves )
+    resp = Team.put_resource("/transactions/lineup", roster_moves, @query_params)
+    return resp
+  end
+
 end
 

@@ -160,7 +160,7 @@ def index
    @user_id = params[:user_id]
    @league_id = params[:league_id]
 
-   roster_moves = params[:roster_mods]
+   roster_moves = params[:payload]
    puts "Roster Moves: #{roster_moves}"
 
    league = Team.new( :access_token => @access_token, :response_format => 'json' )
@@ -169,6 +169,7 @@ def index
    @teams = league.teams
    @roster_mods = { :team => "0", :active => [ ], :reserve => [ ], :point => DateTime.now().strftime(format='%Y%m%d') }
 
+   league.set_lineup(roster_moves)
    @team_roster = build_team_roster( league )
    @roster_display_map = build_roster_display_map(league, @team_roster)
 
