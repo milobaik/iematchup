@@ -100,6 +100,11 @@
     });
   }
 
+  function processSetLineupResponse( res, status, jqXhr ) {
+    playerList = res;
+    createRosterMatchupTable();
+  }
+
   function setLineup() {
       $("#roster_matchups tr.modified_roster_row").each( function(index, elt) {
         var pcb = playerList.index[$(this).attr('id')];
@@ -115,11 +120,13 @@
       } );
 
       var sl_url = "/matchup/set_lineup?access_token=" + accessToken + "?response_format=json";
-      $.ajax( {url: sl_url,      // '/matchup/set_lineup',
+      $.ajax( {url: sl_url,
               type: 'POST',
               contentType: 'application/json',
               data: JSON.stringify({ roster_mods: rosterMods }),
-              dataType: 'json' } );
+              dataType: 'json',
+              async: false,
+              success: processSetLineupResponse } );
   }
 
   function enableDropOnEligiblePositions(positions, rowId ) {
