@@ -75,6 +75,7 @@ class Team
   end
 
   def set_lineup( roster_moves )
+    puts "Set Lineup: #{roster_moves}"
     resp = Team.put_resource("/transactions/lineup", roster_moves, @query_params)
     return resp
   end
