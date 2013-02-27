@@ -118,7 +118,7 @@
 
       var sl_url = "/matchup/set_lineup?access_token=" + accessToken;
       $.ajax( {url: sl_url,
-              type: 'PUT',
+              type: 'POST',
               contentType: 'application/json',
               data: JSON.stringify( { payload: playerList.roster_mods } ),
               dataType: 'json',
