@@ -49,14 +49,15 @@ class MatchupController < ApplicationController
    return team_roster
  end
 
- def build_roster_display_map( league, team_roster )
+ def build_roster_display_map( league, team_roster, teamId )
    player_disp_order = ["C", "1B", "2B", "3B", "SS", "CI", "MI", "OF", "U" ]
 
    rd_map = { :index => [],
               :batters => [ ],
               :bench_batters => [ ],
               :pitchers => [],
-              :bench_pitchers => []
+              :bench_pitchers => [],
+              :roster_mods => { :team => teamId, :active => {}, :reserve => {}, :point => DateTime.now().strftime(format='%Y%m%d') }
    }
 
    # fill in the active batters
@@ -142,14 +143,13 @@ def index
   @league_id = params[:league_id]
   @todays_date = DateTime.now().strftime(format='%m-%d-%Y')
 
-  league = Team.new( :access_token => @access_token, :response_format => 'json' )
+  league = Team.new( :access_token => @access_token, :response_format => 'json', :league_id => '2342-roto')
   @roster = league.roster
 
   @teams = league.teams
-  @roster_mods = { :team => "0", :active => [ ], :reserve => [ ], :point => DateTime.now().strftime(format='%Y%m%d') }
 
   @team_roster = build_team_roster( league )
-  @roster_display_map = build_roster_display_map(league, @team_roster)
+  @roster_display_map = build_roster_display_map(league, @team_roster, @roster[0]["id"])
 
   @team_roster_json = @team_roster.to_json
   @player_list_json = @roster_display_map.to_json
@@ -160,19 +160,24 @@ def index
    @user_id = params[:user_id]
    @league_id = params[:league_id]
 
+
    roster_moves = params[:payload]
+   if roster_moves[:active].length == 0
+     roster_moves.delete(:active)
+   end
+   if roster_moves[:reserve].length == 0
+     roster_moves.delete(:reserve)
+   end
    puts "Roster Moves: #{roster_moves}"
 
-   league = Team.new( :access_token => @access_token, :response_format => 'json' )
-
+   league = Team.new( :access_token => @access_token, :response_format => 'json', :league_id => '2342-roto' )
 
    league.set_lineup(roster_moves)
    @roster = league.roster
    @teams = league.teams
-   @roster_mods = { :team => "0", :active => [ ], :reserve => [ ], :point => DateTime.now().strftime(format='%Y%m%d') }
 
    @team_roster = build_team_roster( league )
-   @roster_display_map = build_roster_display_map(league, @team_roster)
+   @roster_display_map = build_roster_display_map(league, @team_roster, @roster[0]["id"])
 
    render :json => @roster_display_map.to_json
  end

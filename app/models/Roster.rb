@@ -15,7 +15,9 @@ class Team
   end
 
   def self.put_resource(resource, body, query_params)
-    put(resource, :body => body, :query => query_params)
+    response = put(resource, { :access_token => query_params[:access_token], :league_id => query_params[:league_id], :response_format => "json", :body => body })
+    #puts response.body, response.code, response.message, response.headers.inspect
+    return response
   end
 
   def teams
@@ -76,7 +78,11 @@ class Team
 
   def set_lineup( roster_moves )
     puts "Set Lineup: #{roster_moves}"
-    resp = Team.put_resource("/transactions/lineup", roster_moves, @query_params)
+    lineup_changes = roster_moves.to_json
+    puts "#{lineup_changes}"
+    puts @query_params
+    resp = Team.put_resource("/transactions/lineup", { :payload => lineup_changes }, @query_params)
+    puts "Lineup Change has been PUT!"
     return resp
   end
 

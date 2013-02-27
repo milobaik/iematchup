@@ -11,7 +11,6 @@
 
     var teamRoster = <%= @team_roster_json.html_safe %>;
     var playerList = <%= @player_list_json.html_safe %>;
-    var rosterMods = <%= @roster_mods.to_json.html_safe %>;
     var accessToken = "<%= @access_token %>";
 
     // template for converting team roster defined as a JSON array into an html table for display on the
@@ -108,22 +107,20 @@
   function setLineup() {
       $("#roster_matchups tr.modified_roster_row").each( function(index, elt) {
         var pcb = playerList.index[$(this).attr('id')];
-        var movedPlayer = {};
-        movedPlayer[pcb.player.id] = { pos: pcb.player.roster_pos };
         if ( /bench/.test(pcb.section)) {
           // add player to reserve section
-          rosterMods.reserve.push(movedPlayer);
+          playerList.roster_mods["reserve"][pcb.player.id] = { pos: pcb.player.roster_pos };
         } else {
           // add player to active section
-          rosterMods.active.push(movedPlayer);
+          playerList.roster_mods["active"][pcb.player.id] = { pos: pcb.player.roster_pos };
         }
       } );
 
-      var sl_url = "/matchup/set_lineup?access_token=" + accessToken + "?response_format=json";
+      var sl_url = "/matchup/set_lineup?access_token=" + accessToken;
       $.ajax( {url: sl_url,
-              type: 'POST',
+              type: 'PUT',
               contentType: 'application/json',
-              data: JSON.stringify( { payload: rosterMods  } ),
+              data: JSON.stringify( { payload: playerList.roster_mods } ),
               dataType: 'json',
               async: false,
               success: processSetLineupResponse } );
