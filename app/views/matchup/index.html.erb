@@ -109,7 +109,7 @@
         var pcb = playerList.index[$(this).attr('id')];
         if ( /bench/.test(pcb.section)) {
           // add player to reserve section
-          playerList.roster_mods["reserve"][pcb.player.id] = { pos: pcb.player.roster_pos };
+          playerList.roster_mods["reserve"][pcb.player.id] = { pos: pcb.player.eligible[0] };
         } else {
           // add player to active section
           playerList.roster_mods["active"][pcb.player.id] = { pos: pcb.player.roster_pos };

@@ -14,24 +14,25 @@ class Team
     get(resource, :query => query_params)
   end
 
-  def self.put_resource(resource, body, query_params)
-    response = put(resource, { :access_token => query_params[:access_token], :league_id => query_params[:league_id], :response_format => "json", :body => body })
+  def self.put_resource( resource, body, query_params )
+    response = put( resource, :body => { :payload => body, :access_token => query_params[:access_token],
+                                        :league_id => query_params[:league_id], :response_format => "json" } )
     #puts response.body, response.code, response.message, response.headers.inspect
     return response
   end
 
   def teams
-    @teams = Team.get_resource('/teams', @query_params)
+    @teams = Team.get_resource('/teams?version=2.0', @query_params)
     return @teams["body"]["teams"]
   end
 
   def roster
-    @team = Team.get_resource('/rosters', @query_params)
+    @team = Team.get_resource('/rosters?version=2.0', @query_params)
     return @team["body"]["rosters"]["teams"]
   end
 
   def roster_for_team(team_id)
-    @team = Team.get_resource("/rosters?team_id=#{team_id}", @query_params)
+    @team = Team.get_resource("/rosters?version=2.0?team_id=#{team_id}", @query_params)
     return @team["body"]["rosters"]["teams"]
   end
 
@@ -81,7 +82,8 @@ class Team
     lineup_changes = roster_moves.to_json
     puts "#{lineup_changes}"
     puts @query_params
-    resp = Team.put_resource("/transactions/lineup", { :payload => lineup_changes }, @query_params)
+    resourceURL = "/transactions/lineup?version=2.0"
+    resp = Team.put_resource( resourceURL, lineup_changes, @query_params)
     puts "Lineup Change has been PUT!"
     return resp
   end
