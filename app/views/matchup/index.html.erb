@@ -90,8 +90,7 @@
          </tbody> </table>" );
 
   function createRosterMatchupTable() {
-    var mut = plt.expand(playerList);
-    document.getElementById("roster").innerHTML = mut;
+    document.getElementById("roster").innerHTML = plt.expand(playerList);
     $("tr.player").draggable( {
         helper: "clone",
         start:  startDrag,
@@ -265,7 +264,7 @@
           to_pcb.player.roster_pos = to_pcb.position;
 
           // delete entry from bench batters array
-          console.log("Delete Entry. section: " + from_pcb.section + " sidx: " + from_pcb.sidx + " Name: " + from_pcb.player.name)
+          console.log("Delete Entry. section: " + from_pcb.section + " sidx: " + from_pcb.sidx + " Name: " + from_pcb.player.name);
           playerList[from_pcb.section].splice(from_pcb.sidx, 1);
           for ( var i = from_pcb.sidx; i < playerList[from_pcb.section].length; i++ ) {
               console.log("player: " + playerList[from_pcb.section][i].player.name + " old sidx: " + playerList[from_pcb.section][i].sidx + " new sidx: " + i);
@@ -380,7 +379,7 @@
 <div id='roster' class="player_matchups">
 
 </div>
-<div style="display: inline">
+<div style="display: none">
   <table>
     <tr><td>at</td><td><%= @access_token %> </td></tr>
     <tr><td>lid</td><td><%= @league_id %> </td></tr>
