@@ -372,17 +372,9 @@
   <hr/>
 </header>
 
-<div class="teams" style="display: none">
-  <table class="league_team_links">  <tr>
-    <% @teams.each do |team| %>
-        <td><a href="<%= "/matchup/#{team["id"]}?access_token=#{@access_token}?response_format=json" %>"><%= team["name"] %></a></td>
-    <% end %>
-  </tr>
-  </table>
-</div>
 <div id='players' class="player_matchups">
   <table class="roster_matchups_team">
-    <tr><td><h3 align="center"><%= "#{@roster[0]["name"]}" %></h3></td><td><h3 align="center">Player Matchups For: <%= @todays_date %></h3></td></tr>
+    <tr><td><h3 align="center"><%= "#{@fantasyTeam["name"]}" %></h3></td><td><h3 align="center">Player Matchups For: <%= @todays_date %></h3></td></tr>
   </table>
 
 <div id='roster' class="player_matchups">

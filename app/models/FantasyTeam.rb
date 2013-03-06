@@ -1,6 +1,6 @@
 require 'httparty'
 
-class Team
+class FantasyTeam
   include HTTParty
   base_uri 'http://api.cbssports.com/fantasy/league'
   format :json
@@ -21,29 +21,38 @@ class Team
     return response
   end
 
-  def teams
-    @teams = Team.get_resource('/teams?version=2.0', @query_params)
-    return @teams["body"]["teams"]
+  def getFantasyTeam
+    response = FantasyTeam.get_resource('/teams?version=2.0', @query_params)
+    response["body"]["teams"].each do |team|
+      if team["logged_in_team"]
+        @fantasyTeam = team
+        break
+      end
+    end
+    puts "team: #{@fantasyTeam["name"]} id: #{@fantasyTeam["id"]} logged_in: #{@fantasyTeam["logged_in_team"]}"
+    return @fantasyTeam
   end
 
-  def roster
-    @team = Team.get_resource('/rosters?version=2.0', @query_params)
-    return @team["body"]["rosters"]["teams"]
+  def getTeamId
+    return @fantasyTeam["id"]
+  end
+
+  def getFantasyRoster
+    response = FantasyTeam.get_resource('/rosters?version=2.0', @query_params)
+    @roster = response["body"]["rosters"]["teams"][0]
+    puts "Roster: point: #{@roster['point']} period: #{@roster['period']} **"
+    return @roster
   end
 
   def roster_for_team(team_id)
-    @team = Team.get_resource("/rosters?version=2.0?team_id=#{team_id}", @query_params)
+    @team = FantasyTeam.get_resource("/rosters?version=2.0?team_id=#{team_id}", @query_params)
     return @team["body"]["rosters"]["teams"]
   end
 
-  def players
-    return @team["body"]["rosters"]["teams"][0]["players"]
-  end
-
   def players_by_position( position )
-    puts "Filter players for pos: #{position}"
+    #puts "Filter players for pos: #{position}"
     ids = []
-    @team["body"]["rosters"]["teams"][0]["players"].each do |player|
+    @roster["players"].each do |player|
       #puts "player: #{player["id"]} #{player["roster_pos"]}"
       if player["roster_pos"] == position && player["roster_status"] == "A"
         #puts "r: #{position} p: #{player["roster_pos"]} id: #{player["id"]}}"
@@ -55,7 +64,7 @@ class Team
 
   def bench_batters( )
     ids = []
-    @team["body"]["rosters"]["teams"][0]["players"].each do |player|
+    @roster["players"].each do |player|
       #puts "player: #{player["id"]} #{player["roster_pos"]}"
       if player["roster_pos"] != "P" && player["roster_status"] != "A"
         #puts "r: #{position} p: #{player["roster_pos"]} id: #{player["id"]}}"
@@ -67,7 +76,7 @@ class Team
 
   def bench_pitchers( )
     ids = []
-    @team["body"]["rosters"]["teams"][0]["players"].each do |player|
+    @roster["players"].each do |player|
       #puts "player: #{player["id"]} #{player["roster_pos"]}"
       if player["roster_pos"] == "P" && player["roster_status"] != "A"
         #puts "r: #{position} p: #{player["roster_pos"]} id: #{player["id"]}}"
@@ -83,7 +92,7 @@ class Team
     puts "#{lineup_changes}"
     puts @query_params
     resourceURL = "/transactions/lineup?version=2.0"
-    resp = Team.put_resource( resourceURL, lineup_changes, @query_params)
+    resp = FantasyTeam.put_resource( resourceURL, lineup_changes, @query_params)
     puts "Lineup Change has been PUT!"
     return resp
   end
