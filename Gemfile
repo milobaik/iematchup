@@ -20,6 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'xml-simple'
 gem 'httparty'
 gem 'jquery-rails'
 
