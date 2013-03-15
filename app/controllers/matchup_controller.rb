@@ -20,7 +20,9 @@ class MatchupController < ApplicationController
 
  def build_team_roster( roster )
 
-   matchups = Matchups.new().get_matchups
+   todaysMup = Matchups.new
+   todaysMup.load_id_mappings
+   matchups = todaysMup.get_matchups
 
    team_roster = {}
    roster["players"].each do |player|
@@ -31,6 +33,9 @@ class MatchupController < ApplicationController
                :rating => 0,
                :analysis => "No Matchup Information For Today's Game"
        }
+     end
+     if mup[:analysis] == nil
+       mup[:analysis] = "No Matchup Information For Today's Game"
      end
 
      team_roster[player["id"]] = {:name => player["fullname"],
@@ -142,6 +147,7 @@ def index
   @user_id = params[:user_id]
   @league_id = params[:league_id]
   @todays_date = "04-04-2013" #DateTime.now().strftime(format='%m-%d-%Y')
+
 
   curTeam = FantasyTeam.new( :access_token => @access_token, :response_format => 'json', :league_id => '2342-roto')
   @roster = curTeam.getFantasyRoster
