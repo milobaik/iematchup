@@ -5,7 +5,7 @@ class Matchups
 
     def initialize
         @mups = Hash.new()
-        todays_date = "2013-04-04" #DateTime.now().strftime(format='%F')
+        todays_date = DateTime.now().strftime(format='%F')
         iemup_glob = 'app/models/IEMatFOR' + todays_date + '*.csv'
         todays_file = Dir.glob(iemup_glob)
         puts "Today: #{todays_date} file glob: #{iemup_glob} files: #{todays_file}"

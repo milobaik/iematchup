@@ -94,6 +94,7 @@ class FantasyTeam
     resourceURL = "/transactions/lineup?version=2.0"
     resp = FantasyTeam.put_resource( resourceURL, lineup_changes, @query_params)
     puts "Lineup Change has been PUT!"
+    puts "resp: #{resp}"
     return resp
   end
 

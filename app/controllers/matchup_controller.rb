@@ -55,14 +55,14 @@ class MatchupController < ApplicationController
  end
 
  def build_roster_display_map( league, team_roster, teamId )
-   player_disp_order = ["C", "1B", "2B", "3B", "SS", "CI", "MI", "OF", "U" ]
+   player_disp_order = ["C", "1B", "2B", "3B", "SS", "MI", "CI", "OF", "U" ]
 
    rd_map = { :index => [],
               :batters => [ ],
               :bench_batters => [ ],
               :pitchers => [],
               :bench_pitchers => [],
-              :roster_mods => { :team => teamId, :active => {}, :reserve => {}, :point => "20130404" } #DateTime.now().strftime(format='%Y%m%d') }
+              :roster_mods => { :team => teamId, :active => {}, :reserve => {} } #, :point => DateTime.now().strftime(format='%Y%m%d') }
    }
 
    # fill in the active batters
@@ -146,7 +146,7 @@ def index
   @access_token = params[:access_token]
   @user_id = params[:user_id]
   @league_id = params[:league_id]
-  @todays_date = "04-04-2013" #DateTime.now().strftime(format='%m-%d-%Y')
+  @todays_date = DateTime.now().strftime(format='%m-%d-%Y')
 
 
   curTeam = FantasyTeam.new( :access_token => @access_token, :response_format => 'json', :league_id => '2342-roto')
