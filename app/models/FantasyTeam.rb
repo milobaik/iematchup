@@ -21,6 +21,11 @@ class FantasyTeam
     return response
   end
 
+  def getEffectivePoint
+    response = FantasyTeam.get_resource('/dates?version=2.0', @query_params)
+    return response["body"]["dates"]["effective_point"]
+  end
+
   def getFantasyTeam
     response = FantasyTeam.get_resource('/teams?version=2.0', @query_params)
     response["body"]["teams"].each do |team|

@@ -3,9 +3,9 @@ require 'xmlsimple'
 
 class Matchups
 
-    def initialize
+    def initialize( date )
         @mups = Hash.new()
-        todays_date = DateTime.now().strftime(format='%F')
+        todays_date = DateTime.strptime(date, "%Y%m%d").strftime(format='%F')
         iemup_glob = 'app/models/IEMatFOR' + todays_date + '*.csv'
         todays_file = Dir.glob(iemup_glob)
         puts "Today: #{todays_date} file glob: #{iemup_glob} files: #{todays_file}"
@@ -34,7 +34,7 @@ class Matchups
        players = XmlSimple.xml_in('app/models/mlb-vendorkey.xml')
 
        players["player"].each do |player|
-         puts "cbs id: #{player['id']} stats id: #{player['statsid']}"
+         #puts "cbs id: #{player['id']} stats id: #{player['statsid']}"
          @map_cbsid_to_statsid[player["id"]] = player["statsid"]
          @map_statsid_to_cbsid[player["statsid"]] = player['id']
        end

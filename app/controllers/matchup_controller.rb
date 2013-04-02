@@ -18,9 +18,9 @@ class MatchupController < ApplicationController
     roster_map[:index] << player_cb
   end
 
- def build_team_roster( roster )
+ def build_team_roster( roster, date )
 
-   todaysMup = Matchups.new
+   todaysMup = Matchups.new( date )
    todaysMup.load_id_mappings
    matchups = todaysMup.get_matchups
 
@@ -62,7 +62,7 @@ class MatchupController < ApplicationController
               :bench_batters => [ ],
               :pitchers => [],
               :bench_pitchers => [],
-              :roster_mods => { :team => teamId, :active => {}, :reserve => {} } #, :point => DateTime.now().strftime(format='%Y%m%d') }
+              :roster_mods => { :team => teamId, :active => {}, :reserve => {} }
    }
 
    # fill in the active batters
@@ -77,9 +77,9 @@ class MatchupController < ApplicationController
          add_player_to_roster_map( pos, player_type, nil, rd_map )
        end
      else
-       #puts "#{ids.length} players eligile for pos: #{pos} #{ids}"
+       puts "#{ids.length} players eligile for pos: #{pos} #{ids}"
        ids.each do |id|
-         #puts "pos: #{pos} id: #{id} player: #{team_roster[id]}"
+         puts "pos: #{pos} id: #{id} player: #{team_roster[id]}"
          add_player_to_roster_map( pos, player_type, team_roster[id], rd_map )
        end
        if pos == "OF" && ids.length < 5
@@ -96,7 +96,7 @@ class MatchupController < ApplicationController
    pos = "Bench"
    ids = league.bench_batters
    ids.each do |id|
-     #puts "id: #{id} player: #{team_roster[id]}"
+     puts "id: #{id} player: #{team_roster[id]}"
      add_player_to_roster_map( pos, player_type, team_roster[id], rd_map )
    end
 
@@ -111,9 +111,9 @@ class MatchupController < ApplicationController
    player_type = :pitchers
    pos = "P"
    ids = league.players_by_position( pos )
-   #puts "#{ids.length} players eligile for pos: #{pos} #{ids}"
+   puts "#{ids.length} players eligile for pos: #{pos} #{ids}"
    ids.each do |id|
-     #puts "id: #{id} player: #{team_roster[id]}"
+     puts "id: #{id} player: #{team_roster[id]}"
      add_player_to_roster_map( pos, player_type, team_roster[id], rd_map )
    end
 
@@ -128,7 +128,7 @@ class MatchupController < ApplicationController
    player_type = :bench_pitchers
    ids = league.bench_pitchers
    ids.each do |id|
-     #puts "id: #{id} player: #{team_roster[id]}"
+     puts "id: #{id} player: #{team_roster[id]}"
      add_player_to_roster_map( pos, player_type, team_roster[id], rd_map )
    end
 
@@ -146,14 +146,16 @@ def index
   @access_token = params[:access_token]
   @user_id = params[:user_id]
   @league_id = params[:league_id]
-  @todays_date = DateTime.now().strftime(format='%m-%d-%Y')
-
 
   curTeam = FantasyTeam.new( :access_token => @access_token, :response_format => 'json', :league_id => '2342-roto')
+  transactionPoint = curTeam.getEffectivePoint
+  @todays_date = DateTime.strptime(transactionPoint, "%Y%m%d").strftime(format='%m-%d-%Y')
+  puts "Todays Date: " + @todays_date
+
   @roster = curTeam.getFantasyRoster
   @fantasyTeam = curTeam.getFantasyTeam
 
-  @team_roster = build_team_roster( @roster )
+  @team_roster = build_team_roster( @roster, transactionPoint )
   @roster_display_map = build_roster_display_map(curTeam, @team_roster, curTeam.getTeamId)
 
   @team_roster_json = @team_roster.to_json
@@ -181,7 +183,7 @@ def index
    @roster = curTeam.getFantasyRoster
    @teams = curTeam.getFantasyTeam
 
-   @team_roster = build_team_roster( @roster )
+   @team_roster = build_team_roster( @roster, curTeam.getEffectivePoint )
    @roster_display_map = build_roster_display_map(curTeam, @team_roster, curTeam.getTeamId)
 
    render :json => @roster_display_map.to_json
@@ -198,7 +200,7 @@ def index
     @roster = curTeam.roster_for_team(params[:team_id])
     @players = curTeam.getFantasyRoster
 
-    mups = Matchups.new()
+    mups = Matchups.new( curTeam.getEffectivePoint )
     @matchups = mups.get_matchups
 
     @roster_display_map = {}
