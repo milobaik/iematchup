@@ -1,5 +1,6 @@
 require 'csv'
 require 'xmlsimple'
+require "PlayerIdMapper"
 
 class Matchups
 
@@ -14,8 +15,10 @@ class Matchups
           CSV.foreach(filename, :headers => :first_row) { |row|
             player_name = "#{row[4]} #{row[5]}"
             opp_name = "#{row[7]} #{row[8]}"
-            matchup = {:player => player_name, :opponent => opp_name, :rating => row[10].to_i, :analysis => row[11]}
+            matchup = { :statsid => row[3], :player => player_name, :opponent => opp_name,
+                        :rating => row[10].to_i, :analysis => row[11]}
             @mups[player_name] = matchup
+            @mups[ PlayerIdMapper.instance.map_statsid_to_cbsid( row[3] ) ] = matchup
           }
         }
     end
@@ -26,33 +29,6 @@ class Matchups
 
     def get_player( player_name )
       return @mups[player_name]
-    end
-
-    def load_id_mappings
-       @map_cbsid_to_statsid = Hash.new
-       @map_statsid_to_cbsid = Hash.new
-       players = XmlSimple.xml_in('app/models/mlb-vendorkey.xml')
-
-       players["player"].each do |player|
-         #puts "cbs id: #{player['id']} stats id: #{player['statsid']}"
-         @map_cbsid_to_statsid[player["id"]] = player["statsid"]
-         @map_statsid_to_cbsid[player["statsid"]] = player['id']
-       end
-=begin
-       puts "ID MAPPINGS"
-       puts @map_cbsid_to_statid
-       puts "******"
-       puts @map_statsid_to_cbsid
-       puts "ID MAPPINGS END"
-=end
-    end
-
-    def map_cbsid_to_stats_id( cbs_id )
-      return @map_cbsid_to_statsid[ cbs_id ]
-    end
-
-    def map_statsid_to_cbsid( stats_id )
-      return @map_statsid_to_cbsid[ stats_id ]
     end
 end
 

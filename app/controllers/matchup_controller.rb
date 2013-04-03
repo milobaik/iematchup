@@ -21,14 +21,13 @@ class MatchupController < ApplicationController
  def build_team_roster( roster, date )
 
    todaysMup = Matchups.new( date )
-   todaysMup.load_id_mappings
    matchups = todaysMup.get_matchups
 
    team_roster = {}
    roster["players"].each do |player|
-     mup = matchups[player["fullname"]]
+     mup = matchups[player["id"]]
      if mup == nil
-       puts "player: #{player["fullname"]} not in matchup file."
+       puts "player id: #{player["id"]} name: #{player["fullname"]} not in matchup file."
        mup = { :opponent => "",
                :rating => 0,
                :analysis => "No Matchup Information For Today's Game"
@@ -36,6 +35,9 @@ class MatchupController < ApplicationController
      end
      if mup[:analysis] == nil
        mup[:analysis] = "No Matchup Information For Today's Game"
+     end
+     if mup[:opponent] == "na na"
+       mup[:opponent] = ""
      end
 
      team_roster[player["id"]] = {:name => player["fullname"],
